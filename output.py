@@ -29,8 +29,6 @@ class Output():
         getNewSituation(changedENV)
 
     def getNewSituation(self, newENV):
-        # do GPIO and/or Static Changes
-        # runtimeStatus()
         # conditionalExpressions
         changedSituation = newENV
         setPhysicalActions(changedSituation)
