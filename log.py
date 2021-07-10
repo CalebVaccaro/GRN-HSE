@@ -13,6 +13,10 @@ class Log():
 
     def StopLog(self):
         LCD.printData("Log","Stop Logging")
+        sleep(1)
+        Log.file.write("\n")
+        Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + "\n")
+        Log.file.close()
 
     def LogInfo(self, output, counter, calibration):
 
