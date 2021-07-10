@@ -32,14 +32,15 @@ class Output():
         # do GPIO and/or Static Changes
         # runtimeStatus()
         # conditionalExpressions
-        # write to SD Card and Print Data
         changedSituation = newENV
         setPhysicalActions(changedSituation)
 
     def setPhysicalActions(self, newTasks):
+        # GPIO Output
         changedStatus = newTasks
         setOutputStatus(changedStatus)
 
     def setOutputStatus(self, data):
+        # Static Output
         LCD.printData("Output", data)
         return data
