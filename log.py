@@ -14,9 +14,13 @@ class Log():
     def StopLog(self):
         LCD.printData("Log","Stop Logging")
 
-    def LogInfo(self, output, calibration):
+    def LogInfo(self, output, counter, calibration):
+
+        # dump output in JSON
         jsonData = json.dumps(str(output))
+
+        # write to file
         if calibration:
-            Log.file.write("Calibration" + jsonData + str("\n\n"))
+            Log.file.write("Calibration " + counter + ": " + jsonData + str("\n\n"))
         else:
-            Log.file.write(jsonData + str("\n\n"))
+            Log.file.write("Data " + counter + ": " + jsonData + str("\n\n"))

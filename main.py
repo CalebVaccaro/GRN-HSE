@@ -26,7 +26,7 @@ if __name__ == '__main__':
         # run for a min
         while calibrationCounter < 1000:
             # set output data
-            l.LogInfo(o.parseInput(i.getInput()), True)
+            l.LogInfo(o.parseInput(i.getInput()), calibrationCounter, True)
             calibrationCounter += 1
 
         # Reset Calibration Counter
@@ -35,7 +35,7 @@ if __name__ == '__main__':
         # Wait Time for Ranged Values
         while True:
             if runtimeCounter >= 1000000:
-                l.LogInfo(o.parseInput(i.getInput()), False)
+                l.LogInfo(o.parseInput(i.getInput()), runtimeCounter, False)
                 runtimeCounter = 0
             runtimeCounter += 1
 

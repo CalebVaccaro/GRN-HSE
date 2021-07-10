@@ -14,12 +14,12 @@ from SensorLib.lcd import LCD
 
 class Output():
 
-    def parseInput(self, input):
+    def parseInput(self, newInput):
         # get data from sensors
         # parse input data
         # input into output data
-        output = input.bme.pressure
-        getNewENV(output)
+        changedOutput = newInput.bme.pressure
+        getNewENV(changedOutput)
 
     def getNewENV(self, newOutputData):
         # if drastic change
@@ -33,12 +33,13 @@ class Output():
         # runtimeStatus()
         # conditionalExpressions
         # write to SD Card and Print Data
-        newSituation = newENV
-        setPhysicalActions(newSituation)
+        changedSituation = newENV
+        setPhysicalActions(changedSituation)
 
     def setPhysicalActions(self, newTasks):
-        newStatus = newTasks
-        setOutputStatus(newStatus)
+        changedStatus = newTasks
+        setOutputStatus(changedStatus)
 
     def setOutputStatus(self, data):
         LCD.printData("Output", data)
+        return data
