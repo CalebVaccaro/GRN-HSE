@@ -1,0 +1,8 @@
+write data to log file
+
+collect arrays of data to get Variables (High, Low, Median)
+
+Last Median >= Current Median
+
+GPIO output from that
+
