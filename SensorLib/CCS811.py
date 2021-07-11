@@ -1,4 +1,4 @@
-import qwiic_ccs811
+from SensorLib.CCS8112 import QwiicCcs811
 import time
 import sys
 import json
@@ -9,7 +9,7 @@ class CCS_811:
 
     def getSensor():
         print("\nSparkFun CCS811 Sensor Basic Example \n")
-        mySensor = qwiic_ccs811.QwiicCcs811()
+        mySensor = QwiicCcs811()
 
         if not mySensor.connected:
             print("CCS811 device NOT Connected", \

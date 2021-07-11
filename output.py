@@ -54,8 +54,8 @@ class Output():
     # parse input data
     # input into output data
     def parseInput(newInput):
-        changedOutput = json.loads(newInput)["bme"]
-        bmedata = json.loads(changedOutput)["temperature"]
+        changedOutput = json.loads(newInput)["ccs"]
+        bmedata = json.loads(changedOutput)["co2"]
         Output.getNewENV(bmedata)
 
     # add index to median array
