@@ -20,6 +20,7 @@ class BME_280(object):
         return sensor
 
     def getRawData(self):
+        time.sleep(1)
         bme = BME_280.bme
         # Return Better Data (JSON)
         bmeData = {'humidity': bme.humidity, 'pressure': bme.pressure, 'altitude': bme.altitude_meters, 'temperature': bme.temperature_fahrenheit}

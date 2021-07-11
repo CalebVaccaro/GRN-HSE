@@ -38,6 +38,8 @@ class Output(object):
     pressureIndex = []
     tempIndex = []
 
+    finalOutput = None
+
     # get data from sensors
     # parse input data
     # input into output data
@@ -79,8 +81,9 @@ class Output(object):
 
     # Static Output
     def setOutputStatus(self,data):
-        SensorLib.LCD().printData("Temp", data)
-        print(data)
+        finalOutput = data
+        SensorLib.LCD().printData("Temp", finalOutput)
+        print(finalOutput)
 
         # Return JSON of OutputStatus and High/Low/Median Values
-        return data
+        #return finalOutput

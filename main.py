@@ -25,9 +25,8 @@ if __name__ == '__main__':
         # run for a min
         while calibrationCounter < 50:
             # set output data
-            outputString = o.parseInput(i.getInput())
-            print(outputString)
-            l.LogInfo(outputString, calibrationCounter, True)
+            o.parseInput(i.getInput())
+            l.LogInfo(o.finalOutput, calibrationCounter, True)
             calibrationCounter += 1
 
         # Reset Calibration Counter
@@ -37,9 +36,8 @@ if __name__ == '__main__':
         while True:
             # Check New Values Every 1 min
             if runtimeCounter >= 100:
-                outputString = o.parseInput(i.getInput())
-                print(outputString)
-                l.LogInfo(outputString, runtimeCounter, False)
+                o.parseInput(i.getInput())
+                l.LogInfo(o.finalOutput, runtimeCounter, False)
                 runtimeCounter = 0
             runtimeCounter += 1
 
