@@ -21,9 +21,11 @@ class CCS_811:
 
     def getRawData():
         # Return Better Data (JSON)
-        CCS_811.css.read_algorithm_results()
-        cssData = {'co2': CCS_811.css.CO2 ,'tvoc': CCS_811.css.TVOC }
-        return json.dumps(cssData)
+        while True:
+            CCS_811.css.read_algorithm_results()
+            cssData = {'co2': CCS_811.css.CO2 ,'tvoc': CCS_811.css.TVOC }
+            time.sleep(1)
+            return json.dumps(cssData)
 
 #if __name__ == '__main__':
 #   try:

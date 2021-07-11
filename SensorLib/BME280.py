@@ -1,4 +1,4 @@
-from BME2802 import qwiic_bme280
+from SensorLib.BME2802 import QwiicBme280
 import time
 import sys
 import json
@@ -7,7 +7,7 @@ class BME_280:
     bme = None
 
     def getSensor():
-        sensor = qwiic_bme280.QwiicBme280()
+        sensor = QwiicBme280()
 
         if not sensor.connected:
             print("BME280 device NOT Connected", \

@@ -20,7 +20,7 @@ class Output():
         # parse input data
         # input into output data
         changedOutput = json.loads(newInput)["bme"]
-        bmedata = json.loads(changedOutput)["pressure"]
+        bmedata = json.loads(changedOutput)["temperature"]
         Output.getNewENV(bmedata)
 
     def getNewENV(newOutputData):

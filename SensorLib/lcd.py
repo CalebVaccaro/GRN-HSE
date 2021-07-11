@@ -28,7 +28,6 @@ class LCD:
         try:
             if LCD.ifLCD is True:
                 # do something (print on LCD)
-                LCD.monitor.setBacklight(255, 0, 0)  # Set backlight to bright white
                 LCD.monitor.clearScreen()
                 LCD.monitor.setCursor(0, 0)
                 LCD.monitor.print(header + ":  ")
