@@ -31,7 +31,6 @@ class LCD(object):
                 LCD.monitor.setCursor(0, 0)
                 LCD.monitor.print(header + ":  ")
                 LCD.monitor.print(str(data))
-                time.sleep(1)
             else:
                 # do something else (print on rpi)
                 print(header + "\n" + data)
