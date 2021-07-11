@@ -21,12 +21,15 @@ class Log(object):
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         Log.file.close()
         
-    def LogInfo(self,data):
+    def LogInfo(self,data, count, calibration):
         # dump output in JSON
         print("Log Info")
         jsonData = json.dumps(str(data))
 
         # write to file
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
-        Log.file.write("Data: " + str(jsonData) + str("\n"))
-            
+        if calibration:
+            Log.file.write("Calibration " + str(count) + " :" + str(jsonData) + str("\n"))
+        else:
+            Log.file.write("Runtime " + str(count) + " :" + str(jsonData) + str("\n"))
+

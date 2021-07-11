@@ -25,7 +25,7 @@ if __name__ == '__main__':
         # run for a min
         while True:
             # set output data
-            o.parseInput(i.getInput())
+            o.parseInput(i.getInput(), calibrationCounter, True)
             calibrationCounter += 1
             sleep(1)
 
@@ -37,7 +37,8 @@ if __name__ == '__main__':
         while True:
             # Check New Values Every 1 min
             if runtimeCounter >= 100:
-                o.parseInput(i.getInput())
+                o.parseInput(i.getInput(), dataCounter, False)
+                dataCounter += 1
                 runtimeCounter = 0
                 sleep(1)
             runtimeCounter += 1
