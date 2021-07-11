@@ -23,7 +23,7 @@ class Input():
 
     def getInput():
         # return RAW ENV-data to a Paired Object (CCS and BME data)
-        cssData = CCS_811.getRawData()
+        ccsData = CCS_811.getRawData()
         bmeData = BME_280.getRawData()
-        allInput = {"css": cssData, "bme": bmeData}
+        allInput = {"ccs": ccsData, "bme": bmeData}
         return json.dumps(allInput)
