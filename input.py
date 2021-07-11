@@ -7,7 +7,7 @@ import json
 
 class Input():
 
-    def ValidateSensors(self):
+    def ValidateSensors():
 
         # LED INIT
         LCDMonitor = LCD.getSensor()
@@ -21,7 +21,7 @@ class Input():
         # Validated Sensors!
         LCD.printData("Input","Env Sensors Validated")
 
-    def getInput(self):
+    def getInput():
         # return RAW ENV-data to a Paired Object (CCS and BME data)
         cssData = CCS_811.getRawData()
         bmeData = BME_280.getRawData()

@@ -3,11 +3,11 @@ import time
 import sys
 import json
 
-class CCS811:
+class CCS_811:
 
     css = None
 
-    def getSensor(self):
+    def getSensor():
         print("\nSparkFun CCS811 Sensor Basic Example \n")
         mySensor = qwiic_ccs811.QwiicCcs811()
 
@@ -17,12 +17,12 @@ class CCS811:
             return
 
         mySensor.begin()
-        css = MySensor
+        CCS_811.css = mySensor
 
-    def getRawData(self):
+    def getRawData():
         # Return Better Data (JSON)
-        css.read_algorithm_results()
-        cssData = {'co2': css.CO2 ,'tvoc': css.TVOC }
+        CCS_811.css.read_algorithm_results()
+        cssData = {'co2': CCS_811.css.CO2 ,'tvoc': CCS_811.css.TVOC }
         return json.dumps(cssData)
 
 #if __name__ == '__main__':

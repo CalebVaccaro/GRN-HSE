@@ -8,11 +8,11 @@ class LCD:
     monitor = None
     ifLCD = True
 
-    def getSensor(self):
+    def getSensor():
         myLCD = qwiic_serlcd.QwiicSerlcd()
 
         if not myLCD.connected:
-            ifLCD = False
+            LCD.ifLCD = False
             return
 
         myLCD.setBacklight(255, 255, 255)  # Set backlight to bright white
@@ -22,19 +22,23 @@ class LCD:
         time.sleep(1)  # give a sec for system messages to complete
 
         myLCD.print("Hello World!")
-        monitor = myLCD
+        LCD.monitor = myLCD
 
-    def printData(self, header, data):
-        if LCD.ifLCD is True:
-            # do something (print on LCD)
-            myLCD.setBacklight(255, 0, 0)  # Set backlight to bright white
-            myLCD.setCursor(8, 0)
-            myLCD.print(header)
-            myLCD.setCursor(0, 1)
-            myLCD.print(str(data))
-        else:
-            # do something else (print on rpi)
-            print(header + "\n" + data)
+    def printData(header, data):
+        try:
+            if LCD.ifLCD is True:
+                # do something (print on LCD)
+                LCD.monitor.setBacklight(255, 0, 0)  # Set backlight to bright white
+                LCD.monitor.clearScreen()
+                LCD.monitor.setCursor(0, 0)
+                LCD.monitor.print(header + ":  ")
+                LCD.monitor.print(str(data))
+                time.sleep(1)
+            else:
+                # do something else (print on rpi)
+                print(header + "\n" + data)
+        except:
+            print("error on LCD")
 
 #if __name__ == '__main__':
 #    try:

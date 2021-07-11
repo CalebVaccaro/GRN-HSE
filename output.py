@@ -1,6 +1,7 @@
 from SensorLib.BME280 import BME_280
 from SensorLib.CCS811 import CCS_811
 from SensorLib.lcd import LCD
+import json
 #from gpiozero import LED
 
 #hFan = LED(23)
@@ -14,31 +15,33 @@ from SensorLib.lcd import LCD
 
 class Output():
 
-    def parseInput(self, newInput):
+    def parseInput(newInput):
         # get data from sensors
         # parse input data
         # input into output data
-        changedOutput = newInput.bme.pressure
-        getNewENV(changedOutput)
+        changedOutput = json.loads(newInput)["bme"]
+        bmedata = json.loads(changedOutput)["pressure"]
+        Output.getNewENV(bmedata)
 
-    def getNewENV(self, newOutputData):
+    def getNewENV(newOutputData):
         # if drastic change
         # see which variable has drastic change
         # physics
         changedENV = newOutputData
-        getNewSituation(changedENV)
+        Output.getNewSituation(changedENV)
 
-    def getNewSituation(self, newENV):
+    def getNewSituation(newENV):
         # conditionalExpressions
         changedSituation = newENV
-        setPhysicalActions(changedSituation)
+        Output.setPhysicalActions(changedSituation)
 
-    def setPhysicalActions(self, newTasks):
+    def setPhysicalActions(newTasks):
         # GPIO Output
         changedStatus = newTasks
-        setOutputStatus(changedStatus)
+        Output.setOutputStatus(changedStatus)
 
-    def setOutputStatus(self, data):
+    def setOutputStatus(data):
         # Static Output
         LCD.printData("Output", data)
+        print(data)
         return data
