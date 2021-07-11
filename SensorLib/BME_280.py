@@ -24,7 +24,7 @@ class BME_280:
         bme = BME_280.bme
         # Return Better Data (JSON)
         bmeData = {'humidity': bme.humidity, 'pressure': bme.pressure, 'altitude': bme.altitude_meters, 'temperature': bme.temperature_fahrenheit}
-        return bmeData
+        return json.dumps(bmeData)
 
 # if __name__ == '__main__':
 # try:

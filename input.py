@@ -26,4 +26,4 @@ class Input():
         cssData = CCS_811.getRawData()
         bmeData = BME_280.getRawData()
         allInput = {"css": cssData, "bme": bmeData}
-        return allInput
+        return json.dumps(allInput)

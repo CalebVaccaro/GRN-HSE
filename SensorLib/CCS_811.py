@@ -23,7 +23,7 @@ class CCS811:
         # Return Better Data (JSON)
         css.read_algorithm_results()
         cssData = {'co2': css.CO2 ,'tvoc': css.TVOC }
-        return cssData
+        return json.dumps(cssData)
 
 #if __name__ == '__main__':
 #   try:
