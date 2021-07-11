@@ -1,5 +1,6 @@
 import SensorLib
 import json
+from log import Log
 #from gpiozero import LED
 
 #hFan = LED(23)
@@ -38,15 +39,15 @@ class Output(object):
     pressureIndex = []
     tempIndex = []
 
-    finalOutput = None
+    finalOutput = 0
 
     # get data from sensors
     # parse input data
     # input into output data
     def parseInput(self,newInput):
         changedOutput = json.loads(newInput)["bme"]
-        bmedata = json.loads(changedOutput)["temperature"]
-        Output().getNewENV(str("%.2f" % bmedata))
+        bmeData = json.loads(changedOutput)["temperature"]
+        Output().getNewENV(str("%.3f" % bmeData))
 
     # add index to median array
     def addValueToMedian(self,array, incomingValue):
@@ -67,23 +68,27 @@ class Output(object):
     # physics
     def getNewENV(self,newOutputData):
         changedENV = newOutputData
+        print(changedENV)
         Output().getNewSituation(changedENV)
 
     # conditionalExpressions
     def getNewSituation(self,newENV):
         changedSituation = newENV
+        print(changedSituation)
         Output().setPhysicalActions(changedSituation)
 
     # GPIO Output
     def setPhysicalActions(self,newTasks):
         changedStatus = newTasks
+        print(changedStatus)
         Output().setOutputStatus(changedStatus)
 
     # Static Output
     def setOutputStatus(self,data):
-        finalOutput = data
-        SensorLib.LCD().printData("Temp", finalOutput)
-        print(finalOutput)
+        print(data)
+        print("End Output")
+        SensorLib.LCD().printData("Temp", data)
+        Log().LogInfo(data)
 
         # Return JSON of OutputStatus and High/Low/Median Values
         #return finalOutput

@@ -18,11 +18,10 @@ class LCD(object):
         myLCD.setBacklight(255, 255, 255)  # Set backlight to bright white
         myLCD.setContrast(5)  # set contrast. Lower to 0 for higher contrast.
         myLCD.clearScreen()  # clear the screen - this moves the cursor to the home position as well
-
-        time.sleep(1)  # give a sec for system messages to complete
-
-        LCD().printData("LCD","Display Activated")
         LCD.monitor = myLCD
+        time.sleep(1)  # give a sec for system messages to complete
+        
+        LCD().printData("LCD","Display Activated")
 
     def printData(self,header, data):
         try:

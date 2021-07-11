@@ -23,22 +23,23 @@ if __name__ == '__main__':
 
         # First Time Run
         # run for a min
-        while calibrationCounter < 50:
+        while True:
             # set output data
             o.parseInput(i.getInput())
-            l.LogInfo(o.finalOutput, calibrationCounter, True)
             calibrationCounter += 1
+            sleep(1)
 
         # Reset Calibration Counter
         calibrationCounter = 0
 
         # Wait Time for Ranged Values
+        dataCounter = 0
         while True:
             # Check New Values Every 1 min
             if runtimeCounter >= 100:
                 o.parseInput(i.getInput())
-                l.LogInfo(o.finalOutput, runtimeCounter, False)
                 runtimeCounter = 0
+                sleep(1)
             runtimeCounter += 1
 
     # Manual ESC

@@ -6,28 +6,27 @@ import SensorLib
 class Log(object):
 
     file = None
+    outData = None
 
     def LogLurk(self):
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        Log.file.write("\n\n")
+        Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
+        Log.file.write("\n")
         SensorLib.LCD().printData("Log","Open Log File")
 
     def StopLog(self):
         SensorLib.LCD().printData("Log","Stop Logging")
         sleep(1)
-        Log.file.write("\n")
-        Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + "\n")
+        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         Log.file.close()
-
-    def LogInfo(self,output, counter, calibration):
-
+        
+    def LogInfo(self,data):
         # dump output in JSON
-        print(output)
-        print(counter)
-        print(calibration)
-        jsonData = json.dumps(str(output))
+        print("Log Info")
+        jsonData = json.dumps(str(data))
 
         # write to file
-        if calibration:
-            Log.file.write("Calibration " + str(counter) + ": " + str(jsonData) + str("\n\n"))
-        else:
-            Log.file.write("Data " + str(counter) + ": " + str(jsonData) + str("\n\n"))
+        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        Log.file.write("Data: " + str(jsonData) + str("\n"))
+            

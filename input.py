@@ -11,12 +11,13 @@ class Input(object):
 
         # LED INIT
         LCDMonitor = display.getSensor()
-
+        sleep(.5)
+        
         # ENV Sensor INIT
         BME280 = SensorLib.BME_280().getSensor()
         sleep(.5)
         #CCS811 = SensorLib.CCS_811().getSensor()
-        sleep(.5)
+        #sleep(.5)
 
         # Validated Sensors!
         SensorLib.LCD().printData("Input","Env Senrs Validated")
