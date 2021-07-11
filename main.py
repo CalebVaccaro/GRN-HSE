@@ -1,13 +1,13 @@
 import sys
 from time import sleep
-from input import Input
 from output import Output
+from input import Input
 from log import Log
 
 # class easy refs
-i = Input
-o = Output
-l = Log
+i = Input()
+o = Output()
+l = Log()
 
 # counters
 calibrationCounter = 0
@@ -19,12 +19,11 @@ if __name__ == '__main__':
         # do something
         # get input data
         i.ValidateSensors()
-        sleep(.5)
         l.LogLurk()
 
         # First Time Run
         # run for a min
-        while calibrationCounter < 100:
+        while calibrationCounter < 50:
             # set output data
             outputString = o.parseInput(i.getInput())
             print(outputString)

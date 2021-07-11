@@ -1,24 +1,24 @@
 import json
 from time import sleep
 from datetime import datetime
-from SensorLib.lcd import LCD
+import SensorLib
 
-class Log():
+class Log(object):
 
     file = None
 
-    def LogLurk():
-        Log.file = open("log/log.json", "a")
-        LCD.printData("Log","Open Log File")
+    def LogLurk(self):
+        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        SensorLib.LCD().printData("Log","Open Log File")
 
-    def StopLog():
-        LCD.printData("Log","Stop Logging")
+    def StopLog(self):
+        SensorLib.LCD().printData("Log","Stop Logging")
         sleep(1)
         Log.file.write("\n")
         Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + "\n")
         Log.file.close()
 
-    def LogInfo(output, counter, calibration):
+    def LogInfo(self,output, counter, calibration):
 
         # dump output in JSON
         print(output)

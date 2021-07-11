@@ -1,6 +1,4 @@
-from SensorLib.BME280 import BME_280
-from SensorLib.CCS811 import CCS_811
-from SensorLib.lcd import LCD
+import SensorLib
 import json
 #from gpiozero import LED
 
@@ -13,85 +11,75 @@ import json
 #led.off()
 #sleep(1)
 
-class Output():
+class Output(object):
 
     # Last Median Values
     lastHumidity = 0
     lastPressure = 0
     lastTemperature = 0
-    lastTVOC = 0
-    lastC02 = 0
 
     # Current Median Values
     currentHumidity = 0
     currentPressure = 0
     currentTemperature = 0
-    currentTVOC = 0
-    currentC02 = 0
 
     # High Values
     highHumidity = 0
     highPressure = 0
     highTemperature = 0
-    highTVOC = 0
-    highC02 = 0
 
     # Low Values
     lowHumidity = 0
     lowPressure = 0
     lowTemperature = 0
-    lowTVOC = 0
-    lowC02 = 0
 
     # Array Indices for Median Calculation
     humidityIndex = []
     pressureIndex = []
     tempIndex = []
-    tvocIndex = []
-    co2Index = []
 
     # get data from sensors
     # parse input data
     # input into output data
-    def parseInput(newInput):
-        changedOutput = json.loads(newInput)["ccs"]
-        bmedata = json.loads(changedOutput)["co2"]
-        Output.getNewENV(bmedata)
+    def parseInput(self,newInput):
+        changedOutput = json.loads(newInput)["bme"]
+        bmedata = json.loads(changedOutput)["temperature"]
+        Output().getNewENV(str("%.2f" % bmedata))
 
     # add index to median array
-    def addValueToMedian(array, incomingValue):
+    def addValueToMedian(self,array, incomingValue):
         print(incomingValue)
 
     # add values in array and divide by array size
     # get high and low values
-    def getNewMedian(array, high, low):
+    def getNewMedian(self,array, high, low):
         return 0
 
     # check the change in medians
-    def getChangeInMedians(array, lastMedian):
+    def getChangeInMedians(self,array, lastMedian):
         # Last Median >= Current Median
         print(lastMedian)
 
     # see which variable has drastic change
     # if drastic change
     # physics
-    def getNewENV(newOutputData):
+    def getNewENV(self,newOutputData):
         changedENV = newOutputData
-        Output.getNewSituation(changedENV)
+        Output().getNewSituation(changedENV)
 
     # conditionalExpressions
-    def getNewSituation(newENV):
+    def getNewSituation(self,newENV):
         changedSituation = newENV
-        Output.setPhysicalActions(changedSituation)
+        Output().setPhysicalActions(changedSituation)
 
     # GPIO Output
-    def setPhysicalActions(newTasks):
+    def setPhysicalActions(self,newTasks):
         changedStatus = newTasks
-        Output.setOutputStatus(changedStatus)
+        Output().setOutputStatus(changedStatus)
 
     # Static Output
-    def setOutputStatus(data):
-        LCD.printData("Output", data)
+    def setOutputStatus(self,data):
+        SensorLib.LCD().printData("Temp", data)
         print(data)
 
         # Return JSON of OutputStatus and High/Low/Median Values

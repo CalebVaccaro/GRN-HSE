@@ -3,12 +3,12 @@ import qwiic_serlcd
 import time
 import sys
 
-class LCD:
+class LCD(object):
 
     monitor = None
     ifLCD = True
 
-    def getSensor():
+    def getSensor(self):
         myLCD = qwiic_serlcd.QwiicSerlcd()
 
         if not myLCD.connected:
@@ -21,10 +21,10 @@ class LCD:
 
         time.sleep(1)  # give a sec for system messages to complete
 
-        myLCD.print("Hello World!")
+        LCD().printData("LCD","Display Activated")
         LCD.monitor = myLCD
 
-    def printData(header, data):
+    def printData(self,header, data):
         try:
             if LCD.ifLCD is True:
                 # do something (print on LCD)
