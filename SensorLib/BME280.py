@@ -1,4 +1,4 @@
-import qwiic_bme280
+from BME2802 import qwiic_bme280
 import time
 import sys
 import json
