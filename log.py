@@ -29,7 +29,7 @@ class Log(object):
         # write to file
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         if calibration:
-            Log.file.write("Calibration " + str(count) + " :" + str(jsonData) + str("\n"))
+            Log.file.write("Calibration " + str(count) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
         else:
-            Log.file.write("Runtime " + str(count) + " :" + str(jsonData) + str("\n"))
+            Log.file.write("Runtime " + str(count) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
 

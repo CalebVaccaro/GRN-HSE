@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
         # First Time Run
         # run for a min
-        while True:
+        while calibrationCounter < 51:
             # set output data
             o.parseInput(i.getInput(), calibrationCounter, True)
             calibrationCounter += 1
@@ -40,8 +40,8 @@ if __name__ == '__main__':
                 o.parseInput(i.getInput(), dataCounter, False)
                 dataCounter += 1
                 runtimeCounter = 0
-                sleep(1)
             runtimeCounter += 1
+            sleep(.5)
 
     # Manual ESC
     except (KeyboardInterrupt, SystemExit) as exErr:
