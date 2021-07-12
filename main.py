@@ -9,12 +9,14 @@ i = Input()
 o = Output()
 l = Log()
 
-# counters
-calibrationCounter = 0
-runtimeCounter = 0
 
 # ** MAIN **
 if __name__ == '__main__':
+
+    # counters
+    calibrationCounter = 0
+    runtimeCounter = 0
+
     try:
         # do something
         # get input data
@@ -26,6 +28,7 @@ if __name__ == '__main__':
         while calibrationCounter < 151:
             # set output data
             o.parseInput(i.getInput(), calibrationCounter, True)
+            print(calibrationCounter)
             calibrationCounter += 1
 
         # Reset Calibration Counter

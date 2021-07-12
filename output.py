@@ -40,7 +40,7 @@ class Output(object):
     tempIndex = []
 
     currentCount = 0
-    calibration = 0
+    calibration = False
 
     # get data from sensors
     # parse input data
@@ -73,19 +73,16 @@ class Output(object):
     # physics
     def getNewENV(self,newOutputData):
         changedENV = newOutputData
-        print(changedENV)
         Output().getNewSituation(changedENV)
 
     # conditionalExpressions
     def getNewSituation(self,newENV):
         changedSituation = newENV
-        print(changedSituation)
         Output().setPhysicalActions(changedSituation)
 
     # GPIO Output
     def setPhysicalActions(self,newTasks):
         changedStatus = newTasks
-        print(changedStatus)
         Output().setOutputStatus(changedStatus)
 
     # Static Output
@@ -93,7 +90,9 @@ class Output(object):
         print(data)
         print("End Output")
         SensorLib.LCD().printData("Temp", data)
-        Log().LogInfo(data, count, calibration)
+        print(Output().currentCount)
+        print(Output().calibration)
+        Log().LogInfo(data)
 
         # Return JSON of OutputStatus and High/Low/Median Values
         #return finalOutput

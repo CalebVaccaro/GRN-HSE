@@ -6,10 +6,9 @@ import SensorLib
 class Log(object):
 
     file = None
-    outData = None
 
     def LogLurk(self):
-        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        Log.file = open("Documents/GRN-HSE/log/log.json", "a")
         Log.file.write("\n\n")
         Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
         Log.file.write("\n")
@@ -17,19 +16,18 @@ class Log(object):
 
     def StopLog(self):
         SensorLib.LCD().printData("Log","Stop Logging")
-        sleep(1)
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         Log.file.close()
         
-    def LogInfo(self,data, count, calibration):
+    def LogInfo(self,data):
         # dump output in JSON
         print("Log Info")
         jsonData = json.dumps(str(data))
 
         # write to file
-        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
-        if calibration:
-            Log.file.write("Calibration " + str(count) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
+        Log.file = open("Documents/GRN-HSE/log/log.json", "a")
+        if Output().calibration is True:
+            Log.file.write("Calibration " + str(0) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
         else:
-            Log.file.write("Runtime " + str(count) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
+            Log.file.write("Runtime " + str(0) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
 
