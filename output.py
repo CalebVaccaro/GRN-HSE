@@ -39,17 +39,10 @@ class Output(object):
     pressureIndex = []
     tempIndex = []
 
-    currentCount = 0
-    calibration = False
-
     # get data from sensors
     # parse input data
     # input into output data
     def parseInput(self,newInput, count, calibration):
-
-        Output().currentCount = count
-        Output().calibration = calibration
-
         changedOutput = json.loads(newInput)["bme"]
         bmeData = json.loads(changedOutput)["temperature"]
         Output().getNewENV(str("%.3f" % bmeData))
@@ -90,8 +83,6 @@ class Output(object):
         print(data)
         print("End Output")
         SensorLib.LCD().printData("Temp", data)
-        print(Output().currentCount)
-        print(Output().calibration)
         Log().LogInfo(data)
 
         # Return JSON of OutputStatus and High/Low/Median Values

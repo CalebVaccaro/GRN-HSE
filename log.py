@@ -8,7 +8,7 @@ class Log(object):
     file = None
 
     def LogLurk(self):
-        Log.file = open("Documents/GRN-HSE/log/log.json", "a")
+        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         Log.file.write("\n\n")
         Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
         Log.file.write("\n")
@@ -25,9 +25,7 @@ class Log(object):
         jsonData = json.dumps(str(data))
 
         # write to file
-        Log.file = open("Documents/GRN-HSE/log/log.json", "a")
-        if Output().calibration is True:
-            Log.file.write("Calibration " + str(0) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
-        else:
-            Log.file.write("Runtime " + str(0) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S'))
+        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        Log.file.write("\nRuntime " + str(0) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S') +"\n")
+
 
