@@ -5,15 +5,6 @@ from input import Input
 from log import Log
 import SensorLib
 
-# class easy refs
-i = Input()
-o = Output()
-l = Log()
-
-# counters
-calibrationCounter = 0
-runtimeCounter = 0
-
 def timeStepCounter():
     techCounter = 0
     while techCounter < 20000:
@@ -21,6 +12,15 @@ def timeStepCounter():
 
 # ** MAIN **
 if __name__ == '__main__':
+
+    # class easy refs
+    i = Input()
+    o = Output()
+    l = Log()
+
+    # counters
+    calibrationCounter = 0
+    runtimeCounter = 0
 
     try:
         # do something
@@ -31,9 +31,13 @@ if __name__ == '__main__':
         # First Time Run
         # run for a min
         while calibrationCounter < 1500:
+
             # set output data
             calData = o.parseInput(i.getInput(), calibrationCounter, True)
-            SensorLib.LCD().printData("Main", o.currentCounter)
+            SensorLib.LCD().printData("Main", calData)
+            l.LogInfo(calData)
+
+            # time step
             timeStepCounter()
             calibrationCounter += 1
 
@@ -44,17 +48,20 @@ if __name__ == '__main__':
         # Wait Time for Ranged Values
         #dataCounter = 0
         #while True:
+
             # Check New Values Every 1 min
             #if runtimeCounter >= 25000:
                 #runData = o.parseInput(i.getInput(), dataCounter, False)
                 #dataCounter += 1
                 #runtimeCounter = 0
+
+            # time step
             #timeStepCounter()
             #runtimeCounter += 1
 
     # Manual ESC
     except (KeyboardInterrupt, SystemExit) as exErr:
         l.StopLog()
-        SensorLib.LCD().printData("Main", "Ended Script")
+        SensorLib.LCD.printData("Main", "Ended Script")
         sleep(1)
         sys.exit(0)
