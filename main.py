@@ -3,6 +3,7 @@ from time import sleep
 from output import Output
 from input import Input
 from log import Log
+import SensorLib
 
 # class easy refs
 i = Input()
@@ -12,6 +13,11 @@ l = Log()
 # counters
 calibrationCounter = 0
 runtimeCounter = 0
+
+def timeStepCounter():
+    techCounter = 0
+    while techCounter < 20000:
+        techCounter += .25
 
 # ** MAIN **
 if __name__ == '__main__':
@@ -24,33 +30,31 @@ if __name__ == '__main__':
 
         # First Time Run
         # run for a min
-        while calibrationCounter < 1510:
+        while calibrationCounter < 1500:
             # set output data
             calData = o.parseInput(i.getInput(), calibrationCounter, True)
-            print(calData)
-            techCounter = 0
-            while techCounter < 20000:
-                techCounter += .25
+            SensorLib.LCD.printData("Main", o.currentCounter)
+            timeStepCounter()
             calibrationCounter += 1
 
         # Reset Calibration Counter
         calibrationCounter = 0
+        SensorLib.LCD.printData()
 
         # Wait Time for Ranged Values
-        dataCounter = 0
-        while True:
+        #dataCounter = 0
+        #while True:
             # Check New Values Every 1 min
-            if runtimeCounter >= 25000:
-                runData = o.parseInput(i.getInput(), dataCounter, False)
-                dataCounter += 1
-                runtimeCounter = 0
-            techCounter2 = 0
-            while techCounter2 < 20000:
-                techCounter2 += .25
-            runtimeCounter += 1
+            #if runtimeCounter >= 25000:
+                #runData = o.parseInput(i.getInput(), dataCounter, False)
+                #dataCounter += 1
+                #runtimeCounter = 0
+            #timeStepCounter()
+            #runtimeCounter += 1
 
     # Manual ESC
     except (KeyboardInterrupt, SystemExit) as exErr:
         l.StopLog()
+        SensorLib.LCD.printData("Main", "Ended Script")
         sleep(1)
         sys.exit(0)

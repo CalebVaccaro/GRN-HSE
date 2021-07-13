@@ -89,7 +89,7 @@ class Output(object):
         print(data)
         print("End Output")
         self.outputData = data
-        SensorLib.LCD().printData("Temp", self.outputData)
+        SensorLib.LCD.printData("Temp", self.outputData)
         return self.outputData
 
         # Return JSON of OutputStatus and High/Low/Median Values

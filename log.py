@@ -12,10 +12,10 @@ class Log(object):
         self.file.write("\n\n")
         self.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
         self.file.write("\n")
-        SensorLib.LCD().printData("Log","Open Log File")
+        SensorLib.LCD.printData("Log","Open Log File")
 
     def StopLog(self):
-        SensorLib.LCD().printData("Log","Stop Logging")
+        SensorLib.LCD.printData("Log","Stop Logging")
         self.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         self.file.close()
 
