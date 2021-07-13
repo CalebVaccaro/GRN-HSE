@@ -28,11 +28,9 @@ if __name__ == '__main__':
             # set output data
             calData = o.parseInput(i.getInput(), calibrationCounter, True)
             print(calData)
-            o.parseInput(i.getInput())
             techCounter = 0
             while techCounter < 20000:
                 techCounter += .25
-            #print(calibrationCounter)
             calibrationCounter += 1
 
         # Reset Calibration Counter
@@ -42,10 +40,8 @@ if __name__ == '__main__':
         dataCounter = 0
         while True:
             # Check New Values Every 1 min
-            if runtimeCounter >= 1000:
+            if runtimeCounter >= 25000:
                 runData = o.parseInput(i.getInput(), dataCounter, False)
-            if runtimeCounter >= 1575:
-                o.parseInput(i.getInput())
                 dataCounter += 1
                 runtimeCounter = 0
             techCounter2 = 0
