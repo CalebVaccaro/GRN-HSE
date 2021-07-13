@@ -1,7 +1,7 @@
-import SensorLib.CCS8112 import QwiicCcs811
 import time
 import sys
 import json
+from SensorLib.CCS8112 import QwiicCcs811
 
 class CCS_811(object):
 
