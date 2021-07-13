@@ -33,13 +33,13 @@ if __name__ == '__main__':
         while calibrationCounter < 1500:
             # set output data
             calData = o.parseInput(i.getInput(), calibrationCounter, True)
-            SensorLib.LCD.printData("Main", o.currentCounter)
+            SensorLib.LCD().printData("Main", o.currentCounter)
             timeStepCounter()
             calibrationCounter += 1
 
         # Reset Calibration Counter
         calibrationCounter = 0
-        SensorLib.LCD.printData()
+        SensorLib.LCD().printData("Main", "Ended Calibration")
 
         # Wait Time for Ranged Values
         #dataCounter = 0
