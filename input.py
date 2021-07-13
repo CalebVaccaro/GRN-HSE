@@ -18,7 +18,7 @@ class Input(object):
         #sleep(.5)
 
         # Validated Sensors!
-        SensorLib.LCD.printData("Input","Env Senrs Validated")
+        SensorLib.LCD().printData("Input","Env Senrs Validated")
 
     def getInput(self):
         # return RAW ENV-data to a Paired Object (CCS and BME data)
