@@ -25,10 +25,13 @@ if __name__ == '__main__':
 
         # First Time Run
         # run for a min
-        while calibrationCounter < 151:
+        while calibrationCounter < 1510:
             # set output data
             o.parseInput(i.getInput())
-            print(calibrationCounter)
+            techCounter = 0
+            while techCounter < 20000:
+                techCounter += .25
+            #print(calibrationCounter)
             calibrationCounter += 1
 
         # Reset Calibration Counter
@@ -38,10 +41,13 @@ if __name__ == '__main__':
         dataCounter = 0
         while True:
             # Check New Values Every 1 min
-            if runtimeCounter >= 1000:
+            if runtimeCounter >= 1575:
                 o.parseInput(i.getInput())
                 dataCounter += 1
                 runtimeCounter = 0
+            techCounter2 = 0
+            while techCounter2 < 20000:
+                techCounter2 += .25
             runtimeCounter += 1
 
     # Manual ESC

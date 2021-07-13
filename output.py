@@ -42,7 +42,7 @@ class Output(object):
     # get data from sensors
     # parse input data
     # input into output data
-    def parseInput(self,newInput, count, calibration):
+    def parseInput(self,newInput):
         changedOutput = json.loads(newInput)["bme"]
         bmeData = json.loads(changedOutput)["temperature"]
         Output().getNewENV(str("%.3f" % bmeData))
