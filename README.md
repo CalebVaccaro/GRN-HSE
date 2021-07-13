@@ -3,6 +3,13 @@
 
 <br>
 
+### First Reading in Greenhouse
+![alt text](https://people.rit.edu/cxvihst/setup1.jpg)
+### 10 Min Second Reading in Greenhouse
+![alt text](https://people.rit.edu/cxvihst/setup2.jpg)
+
+<br>
+
 ## **Input - Enviromental CCS111 / BME 280**
 
 ### Datasets (Data Every 10 Mins):
