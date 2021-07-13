@@ -9,16 +9,15 @@ class LCD(object):
     ifLCD = True
 
     def getSensor(self):
-        myLCD = qwiic_serlcd.QwiicSerlcd()
+        self.monitor = qwiic_serlcd.QwiicSerlcd()
 
-        if not myLCD.connected:
+        if not self.monitor.connected:
             self.ifLCD = False
             return
 
-        myLCD.setBacklight(255, 255, 255)  # Set backlight to bright white
-        myLCD.setContrast(5)  # set contrast. Lower to 0 for higher contrast.
-        myLCD.clearScreen()  # clear the screen - this moves the cursor to the home position as well
-        self.monitor = myLCD
+        self.monitor.setBacklight(255, 255, 255)  # Set backlight to bright white
+        self.monitor.setContrast(5)  # set contrast. Lower to 0 for higher contrast.
+        self.monitor.clearScreen()  # clear the screen - this moves the cursor to the home position as well
         time.sleep(1)  # give a sec for system messages to complete
         
         self.printData("LCD","Display Activated")

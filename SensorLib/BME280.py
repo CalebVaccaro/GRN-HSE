@@ -7,17 +7,16 @@ class BME_280(object):
     bme = None
 
     def getSensor(self):
-        sensor = QwiicBme280()
+        self.bme = QwiicBme280()
 
-        if not sensor.connected:
+        if not self.bme.connected:
             print("BME280 device NOT Connected")
             sys.exit(0)
             return
 
-        sensor.begin()
-        self.bme = sensor
+        self.bme.begin()
         print("BME-280 Is Communicating")
-        return sensor
+        return self.bme
 
     def getRawData(self):
         bme = self.bme

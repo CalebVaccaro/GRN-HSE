@@ -8,14 +8,13 @@ class CCS_811(object):
     ccs = None
 
     def getSensor(self):
-        mySensor = QwiicCcs811()
+        self.ccs = QwiicCcs811()
 
-        if not mySensor.connected:
+        if not self.ccs.connected:
             print("CCS811 device NOT Connected")
             return
 
-        mySensor.begin()
-        self.ccs = mySensor
+        self.ccs.begin()
 
     def getRawData(self):
         # Return Better Data (JSON)
