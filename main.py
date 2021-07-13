@@ -55,6 +55,6 @@ if __name__ == '__main__':
     # Manual ESC
     except (KeyboardInterrupt, SystemExit) as exErr:
         l.StopLog()
-        SensorLib.LCD.printData("Main", "Ended Script")
+        SensorLib.LCD().printData("Main", "Ended Script")
         sleep(1)
         sys.exit(0)

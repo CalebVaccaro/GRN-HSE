@@ -8,20 +8,22 @@ class CCS_811(object):
     ccs = None
 
     def getSensor(self):
-        self.ccs = QwiicCcs811()
+        sensor = QwiicCcs811()
 
-        if not self.ccs.connected:
+        if not sensor.connected:
             print("CCS811 device NOT Connected")
             return
 
-        self.ccs.begin()
+        CCS_811.ccs = sensor
+        return CCS_811.ccs
 
     def getRawData(self):
         # Return Better Data (JSON)
         #time.sleep(2)
-        self.ccs.read_algorithm_results()
-        self.ccs.read_ntc()
-        ccsData = {'co2': self.ccs.CO2 ,'tvoc': self.ccs.TVOC, 'temp': self.ccs.temperature, 'resistance': self.ccs.resistance }
+        ccs = CCS_811.ccs
+        ccs.read_algorithm_results()
+        ccs.read_ntc()
+        ccsData = {'co2': ccs.CO2 ,'tvoc': ccs.TVOC, 'temp': ccs.temperature, 'resistance': ccs.resistance }
         return json.dumps(ccsData)
 
 #if __name__ == '__main__':

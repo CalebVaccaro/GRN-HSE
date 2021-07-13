@@ -47,8 +47,8 @@ class Output(object):
     # parse input data
     # input into output data
     def parseInput(self,newInput, counter, calibration):
-        self.currentCounter = counter
-        self.calibration = calibration
+        Output.currentCounter = counter
+        Output.calibration = calibration
         changedOutput = json.loads(newInput)["bme"]
         bmeData = json.loads(changedOutput)["temperature"]
         self.getNewENV(str("%.3f" % bmeData))
@@ -88,9 +88,9 @@ class Output(object):
     def setOutputStatus(self,data):
         print(data)
         print("End Output")
-        self.outputData = data
-        SensorLib.LCD().printData("Temp", self.outputData)
-        return self.outputData
+        Output.outputData = data
+        SensorLib.LCD().printData("Temp", Output.outputData)
+        return Output.outputData
 
         # Return JSON of OutputStatus and High/Low/Median Values
         #return finalOutput
