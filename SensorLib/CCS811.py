@@ -15,14 +15,14 @@ class CCS_811(object):
             return
 
         mySensor.begin()
-        CCS_811.ccs = mySensor
+        self.ccs = mySensor
 
     def getRawData(self):
         # Return Better Data (JSON)
         #time.sleep(2)
-        CCS_811.ccs.read_algorithm_results()
-        CCS_811.ccs.read_ntc()
-        ccsData = {'co2': CCS_811.ccs.CO2 ,'tvoc': CCS_811.ccs.TVOC, 'temp': CCS_811.ccs.temperature, 'resistance': CCS_811.ccs.resistance }
+        self.ccs.read_algorithm_results()
+        self.ccs.read_ntc()
+        ccsData = {'co2': self.ccs.CO2 ,'tvoc': self.ccs.TVOC, 'temp': self.ccs.temperature, 'resistance': self.ccs.resistance }
         return json.dumps(ccsData)
 
 #if __name__ == '__main__':

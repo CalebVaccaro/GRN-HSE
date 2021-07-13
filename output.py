@@ -39,13 +39,19 @@ class Output(object):
     pressureIndex = []
     tempIndex = []
 
+    outputData = None
+    currentCounter = 0
+    calibration = False
+
     # get data from sensors
     # parse input data
     # input into output data
-    def parseInput(self,newInput, count, calibration):
+    def parseInput(self,newInput, counter, calibration):
+        self.currentCounter = counter
+        self.calibration = calibration
         changedOutput = json.loads(newInput)["bme"]
         bmeData = json.loads(changedOutput)["temperature"]
-        Output().getNewENV(str("%.3f" % bmeData))
+        self.getNewENV(str("%.3f" % bmeData))
 
     # add index to median array
     def addValueToMedian(self,array, incomingValue):
@@ -66,24 +72,25 @@ class Output(object):
     # physics
     def getNewENV(self,newOutputData):
         changedENV = newOutputData
-        Output().getNewSituation(changedENV)
+        self.getNewSituation(changedENV)
 
     # conditionalExpressions
     def getNewSituation(self,newENV):
         changedSituation = newENV
-        Output().setPhysicalActions(changedSituation)
+        self.setPhysicalActions(changedSituation)
 
     # GPIO Output
     def setPhysicalActions(self,newTasks):
         changedStatus = newTasks
-        Output().setOutputStatus(changedStatus)
+        self.setOutputStatus(changedStatus)
 
     # Static Output
     def setOutputStatus(self,data):
         print(data)
         print("End Output")
-        SensorLib.LCD().printData("Temp", data)
-        Log().LogInfo(data)
+        self.outputData = data
+        SensorLib.LCD().printData("Temp", self.outputData)
+        return self.outputData
 
         # Return JSON of OutputStatus and High/Low/Median Values
         #return finalOutput

@@ -15,12 +15,12 @@ class BME_280(object):
             return
 
         sensor.begin()
-        BME_280.bme = sensor
+        self.bme = sensor
         print("BME-280 Is Communicating")
         return sensor
 
     def getRawData(self):
-        bme = BME_280.bme
+        bme = self.bme
         # Return Better Data (JSON)
         bmeData = {'humidity': bme.humidity, 'pressure': bme.pressure, 'altitude': bme.altitude_meters, 'temperature': bme.temperature_fahrenheit}
         return json.dumps(bmeData)
