@@ -7,6 +7,8 @@
 ![alt text](https://people.rit.edu/cxvihst/setup1.jpg)
 ### 10 Min Second Reading in Greenhouse
 ![alt text](https://people.rit.edu/cxvihst/setup2.jpg)
+### Layout on Automated Fan System
+![alt text](https://people.rit.edu/cxvihst/Greenhouse_bb.PNG)
 
 <br>
 
