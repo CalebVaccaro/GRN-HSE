@@ -16,12 +16,12 @@ dataCounter = 0
 
 def calCounter():
     techCounter = 0
-    while techCounter < 50000:
+    while techCounter < 1000000:
         techCounter += .1
 
 def timeCounter():
     techCounter = 0
-    while techCounter < 1000000:
+    while techCounter < 100000000:
         techCounter += .1
 
 # ** MAIN **
