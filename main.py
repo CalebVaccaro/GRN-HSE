@@ -14,9 +14,14 @@ calibrationCounter = 0
 runtimeCounter = 0
 dataCounter = 0
 
-def timeCounter():
+def calCounter():
     techCounter = 0
     while techCounter < 50000:
+        techCounter += .1
+
+def timeCounter():
+    techCounter = 0
+    while techCounter < 1000000:
         techCounter += .1
 
 # ** MAIN **
@@ -33,7 +38,7 @@ if __name__ == '__main__':
         while calibrationCounter < 1500:
             # set output data
             o.parseInput(i.getInput())
-            timeCounter()
+            calCounter()
             calibrationCounter += 1
 
         # Reset Calibration Counter
