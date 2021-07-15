@@ -1,7 +1,7 @@
 import json
 from time import sleep
 from datetime import datetime
-import SensorLib
+import SensorLib.lcd
 
 class Log(object):
 
