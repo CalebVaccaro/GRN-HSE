@@ -45,7 +45,7 @@ class Output(object):
     def parseInput(self,newInput):
         changedOutput = json.loads(newInput)["bme"]
         bmeData = json.loads(changedOutput)["temperature"]
-        Output.getNewENV(str("%.3f" % bmeData))
+        Output().getNewENV(str("%.3f" % bmeData))
 
     # add index to median array
     def addValueToMedian(self,array, incomingValue):
@@ -66,17 +66,17 @@ class Output(object):
     # physics
     def getNewENV(self,newOutputData):
         changedENV = newOutputData
-        Output.getNewSituation(changedENV)
+        Output().getNewSituation(changedENV)
 
     # conditionalExpressions
     def getNewSituation(self,newENV):
         changedSituation = newENV
-        Output.setPhysicalActions(changedSituation)
+        Output().setPhysicalActions(changedSituation)
 
     # GPIO Output
     def setPhysicalActions(self,newTasks):
         changedStatus = newTasks
-        Output.setOutputStatus(changedStatus)
+        Output().setOutputStatus(changedStatus)
 
     # Static Output
     def setOutputStatus(self,data):

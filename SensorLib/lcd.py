@@ -21,7 +21,7 @@ class LCD(object):
         LCD.monitor = myLCD
         time.sleep(1)  # give a sec for system messages to complete
         
-        LCD.printData("LCD","Display Activated")
+        LCD().printData("LCD","Display Activated")
 
     def printData(self,header, data):
         try:
