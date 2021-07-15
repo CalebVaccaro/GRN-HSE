@@ -16,8 +16,8 @@ dataCounter = 0
 
 def timeCounter():
     techCounter = 0
-    while techCounter < 20000:
-        techCounter += .25
+    while techCounter < 50000:
+        techCounter += .1
 
 # ** MAIN **
 if __name__ == '__main__':
