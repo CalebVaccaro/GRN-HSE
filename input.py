@@ -7,14 +7,12 @@ class Input(object):
 
     def ValidateSensors(self):
 
-        display = SensorLib.LCD()
-
         # LED INIT
-        LCDMonitor = display.getSensor()
+        SensorLib.LCD().getSensor()
         sleep(.5)
         
         # ENV Sensor INIT
-        BME280 = SensorLib.BME_280().getSensor()
+        SensorLib.BME_280().getSensor()
         sleep(.5)
         #CCS811 = SensorLib.CCS_811().getSensor()
         #sleep(.5)

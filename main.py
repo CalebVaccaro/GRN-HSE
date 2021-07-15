@@ -9,13 +9,18 @@ i = Input()
 o = Output()
 l = Log()
 
+# counters
+calibrationCounter = 0
+runtimeCounter = 0
+dataCounter = 0
+
+def timeCounter():
+    techCounter = 0
+    while techCounter < 20000:
+        techCounter += .25
 
 # ** MAIN **
 if __name__ == '__main__':
-
-    # counters
-    calibrationCounter = 0
-    runtimeCounter = 0
 
     try:
         # do something
@@ -25,29 +30,23 @@ if __name__ == '__main__':
 
         # First Time Run
         # run for a min
-        while calibrationCounter < 1510:
+        while calibrationCounter < 1500:
             # set output data
             o.parseInput(i.getInput())
-            techCounter = 0
-            while techCounter < 20000:
-                techCounter += .25
-            #print(calibrationCounter)
+            timeCounter()
             calibrationCounter += 1
 
         # Reset Calibration Counter
         calibrationCounter = 0
 
         # Wait Time for Ranged Values
-        dataCounter = 0
         while True:
             # Check New Values Every 1 min
-            if runtimeCounter >= 1575:
+            if runtimeCounter >= 25000:
                 o.parseInput(i.getInput())
                 dataCounter += 1
                 runtimeCounter = 0
-            techCounter2 = 0
-            while techCounter2 < 20000:
-                techCounter2 += .25
+            timeCounter()
             runtimeCounter += 1
 
     # Manual ESC
