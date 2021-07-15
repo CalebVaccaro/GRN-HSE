@@ -14,76 +14,39 @@ from log import Log
 
 class Output(object):
 
-    def __init__(self):
-        self.outputData = None
-        self.currentCounter = 0
-        self.calibration = False
-
     # Last Median Values
-    #lastHumidity = 0
-    #lastPressure = 0
-    #lastTemperature = 0
+    lastHumidity = 0
+    lastPressure = 0
+    lastTemperature = 0
 
     # Current Median Values
-    #currentHumidity = 0
-    #currentPressure = 0
-    #currentTemperature = 0
+    currentHumidity = 0
+    currentPressure = 0
+    currentTemperature = 0
 
     # High Values
-    #highHumidity = 0
-    #highPressure = 0
-    #highTemperature = 0
+    highHumidity = 0
+    highPressure = 0
+    highTemperature = 0
 
     # Low Values
-    #lowHumidity = 0
-    #lowPressure = 0
-    #lowTemperature = 0
+    lowHumidity = 0
+    lowPressure = 0
+    lowTemperature = 0
 
     # Array Indices for Median Calculation
-    #humidityIndex = []
-    #pressureIndex = []
-    #tempIndex = []
-
+    humidityIndex = []
+    pressureIndex = []
+    tempIndex = []
 
     # get data from sensors
     # parse input data
     # input into output data
-    def parseInput(self,newInput, counter, calibration):
-        self.currentCounter = counter
-        self.calibration = calibration
+    def parseInput(self,newInput):
         changedOutput = json.loads(newInput)["bme"]
         bmeData = json.loads(changedOutput)["temperature"]
-        return self.getNewENV(str("%.3f" % bmeData))
+        Output.getNewENV(str("%.3f" % bmeData))
 
-    # see which variable has drastic change
-    # if drastic change
-    # physics
-    def getNewENV(self,newOutputData):
-        changedENV = newOutputData
-        return self.getNewSituation(changedENV)
-
-    # conditionalExpressions
-    def getNewSituation(self,newENV):
-        changedSituation = newENV
-        return self.setPhysicalActions(changedSituation)
-
-    # GPIO Output
-    def setPhysicalActions(self,newTasks):
-        changedStatus = newTasks
-        return self.setOutputStatus(changedStatus)
-
-    # Static Output
-    def setOutputStatus(self,data):
-        print(data)
-        print("End Output")
-        self.outputData = data
-        SensorLib.LCD().printData("Temp", self.outputData)
-
-        # Return JSON of OutputStatus and High/Low/Median Values
-        return self.outputData
-
-
-    # Calculation Region
     # add index to median array
     def addValueToMedian(self,array, incomingValue):
         print(incomingValue)
@@ -97,3 +60,30 @@ class Output(object):
     def getChangeInMedians(self,array, lastMedian):
         # Last Median >= Current Median
         print(lastMedian)
+
+    # see which variable has drastic change
+    # if drastic change
+    # physics
+    def getNewENV(self,newOutputData):
+        changedENV = newOutputData
+        Output.getNewSituation(changedENV)
+
+    # conditionalExpressions
+    def getNewSituation(self,newENV):
+        changedSituation = newENV
+        Output.setPhysicalActions(changedSituation)
+
+    # GPIO Output
+    def setPhysicalActions(self,newTasks):
+        changedStatus = newTasks
+        Output.setOutputStatus(changedStatus)
+
+    # Static Output
+    def setOutputStatus(self,data):
+        print(data)
+        print("End Output")
+        SensorLib.LCD().printData("Temp", data)
+        Log().LogInfo(data)
+
+        # Return JSON of OutputStatus and High/Low/Median Values
+        #return finalOutput
