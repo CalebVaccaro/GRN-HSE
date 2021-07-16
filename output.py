@@ -16,6 +16,9 @@ from datetime import datetime
 class Output:
 
     def __init__(self):
+        self.l = SensorLib.LCD()
+        self.o = Log()
+
         # Last Median Values
         self.lastHumidity = 0
         self.lastTemperature = 0
@@ -145,12 +148,12 @@ class Output:
 
         if self.calibration is True:
             calData = "\nCalibration " + str(self.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
-            Log.LogInfo(calData)
-            SensorLib.LCD.printData("Cal Temp", data)
+            self.o.LogInfo(calData)
+            self.l.printData("Cal Temp", data)
         else:
             runData = "\nRuntime " + str(self.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
-            Log().LogInfo(runData)
-            SensorLib.LCD.printData("Temp", data)
+            self.o.LogInfo(runData)
+            self.l.printData("Temp", data)
 
         # Return JSON of selfStatus and High/Low/Median Values
         #return finalself
