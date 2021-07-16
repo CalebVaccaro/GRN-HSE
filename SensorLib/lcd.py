@@ -1,7 +1,7 @@
 from __future__ import print_function
 import qwiic_serlcd
 import time
-import sys
+import json
 
 class LCD(object):
 
@@ -33,10 +33,16 @@ class LCD(object):
                 LCD.monitor.print(str(data))
             else:
                 # do something else (print on rpi)
-                print(header + "\n" + data)
+                print(header + ":\n" + data)
             time.sleep(1)
         except:
             print("error on LCD")
+
+    def printMultipleData(self, data):
+        for x in data:
+            header = json.loads(x)["header"]
+            body = json.loads(x)["body"]
+            LCD().printData(header,body)
 
 #if __name__ == '__main__':
 #    try:

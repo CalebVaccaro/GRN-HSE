@@ -1,7 +1,6 @@
+import json
 import SensorLib
 from time import sleep
-import sys
-import json
 
 class Input(object):
 

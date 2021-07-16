@@ -16,10 +16,10 @@ dataCounter = 0
 
 def calCounter():
     techCounter = 0
-    while techCounter < 1000000:
+    while techCounter < 10000:
         techCounter += .1
 
-def timeCounter():
+def runtimeCounter():
     techCounter = 0
     while techCounter < 100000000:
         techCounter += .1
@@ -33,26 +33,24 @@ if __name__ == '__main__':
         i.ValidateSensors()
         l.LogLurk()
 
-        # First Time Run
-        # run for a min
-        while calibrationCounter < 1500:
-            # set output data
-            o.parseInput(i.getInput())
-            calCounter()
-            calibrationCounter += 1
-
-        # Reset Calibration Counter
-        calibrationCounter = 0
-
-        # Wait Time for Ranged Values
         while True:
-            # Check New Values Every 1 min
-            if runtimeCounter >= 25000:
-                o.parseInput(i.getInput())
-                dataCounter += 1
-                runtimeCounter = 0
-            timeCounter()
-            runtimeCounter += 1
+            # --- Full Loop ---
+            # First Time Run
+            # run for a min
+            while calibrationCounter < 1500:
+                # set output data
+                o.parseQuickPacket(i.getInput(), calibrationCounter)
+                calCounter()
+                calibrationCounter += 1
+
+            # Reset Calibration Counter
+            calibrationCounter = 0
+
+            o.parseInput(i.getInput())
+
+            sleep(20)
+            o.clearDataLists()
+            # --- End of Loop --- #
 
     # Manual ESC
     except (KeyboardInterrupt, SystemExit) as exErr:

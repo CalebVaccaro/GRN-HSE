@@ -1,7 +1,6 @@
 import json
+import SensorLib
 from time import sleep
-from datetime import datetime
-import SensorLib.lcd
 
 class Log(object):
 
@@ -20,12 +19,12 @@ class Log(object):
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         Log.file.close()
         
-    # Add Calibration and Counter
     def LogInfo(self,data):
+
         # dump output in JSON
         print("Log Info")
         jsonData = json.dumps(str(data))
 
         # write to file
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
-        Log.file.write("\nRuntime " + str(0) + " :" + str(jsonData) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S') +"\n")
+        Log.file.write(jsonData)

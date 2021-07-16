@@ -6,3 +6,8 @@ Last Median >= Current Median
 
 GPIO output from that
 
+Status:
+
+No Change
+(+/-) Humidity
+(+/-) Temp
