@@ -23,7 +23,6 @@ class Log(object):
     def LogInfo(self,data):
 
         # dump output in JSON
-        print("Log Info")
         jsonData = json.dumps(str(data))
 
         # write to file

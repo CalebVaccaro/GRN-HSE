@@ -43,9 +43,9 @@ class Output(object):
     counter = 0
     calibration = False
 
-    def clearDataLists():
-        Output.humidityIndex.clear()
-        Output.tempIndex.clear()
+    def clearDataLists(self):
+        del Output.humidityIndex [:]
+        del Output.tempIndex [:]
 
     def parseQuickPacket(self, newInput, count):
         Output().counter = count
@@ -83,10 +83,12 @@ class Output(object):
         }
 
         packet = json.dumps(rawPacket)
+        #print(Output.currentHumidity)
         Output().getNewENV(packet)
 
 
     def addValueToMedian(self, list, incomingValue):
+        print(incomingValue)
         list.append(incomingValue)
 
     # add index to median list
@@ -99,9 +101,9 @@ class Output(object):
     # get high and low values
     def getNewMedian(self, list, current, high, low, last):
         # calculate new median
-        current = sum(list) / list.count()
-        high = max(list)
-        low = min(list)
+        Output.currentHumidity = sum(list) / len(list)
+        Output.highHumidity = max(list)
+        Output.lowHumidity = min(list)
         #Export Package
         # Time
         # BME:
@@ -116,6 +118,7 @@ class Output(object):
     def getChangeInMedians(self,current, last):
         # Last Median >= Current Median
         if current > last:
+            print("True")
             return True
         else:
             return False
@@ -140,15 +143,16 @@ class Output(object):
     # Static Output
     def setOutputStatus(self,data):
 
+        print("Data")
         print(data)
-        print("End Output")
+        #print("End Output")
 
         if Output.calibration is True:
-            calData = "\nCalibration " + str(Output.counter) + " :" + str(data) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S') +"\n"
+            calData = "\nCalibration " + str(Output.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
             Log().LogInfo(calData)
             SensorLib.LCD().printData("Cal Temp", data)
         else:
-            runData = "\nRuntime " + str(Output.counter) + " :" + str(data) + str("\n") + "dt: " + datetime.today().strftime('%H:%M:%S') +"\n"
+            runData = "\nRuntime " + str(Output.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
             Log().LogInfo(runData)
             SensorLib.LCD().printData("Temp", data)
 
