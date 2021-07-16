@@ -37,7 +37,7 @@ if __name__ == '__main__':
             # --- Full Loop ---
             # First Time Run
             # run for a min
-            while calibrationCounter < 1500:
+            while calibrationCounter < 11:
                 # set output data
                 o.parseQuickPacket(i.getInput(), calibrationCounter)
                 calCounter()
