@@ -34,6 +34,7 @@ class LCD(object):
             else:
                 # do something else (print on rpi)
                 print(header + "\n" + data)
+            time.sleep(1)
         except:
             print("error on LCD")
 

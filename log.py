@@ -20,6 +20,7 @@ class Log(object):
         Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
         Log.file.close()
         
+    # Add Calibration and Counter
     def LogInfo(self,data):
         # dump output in JSON
         print("Log Info")
