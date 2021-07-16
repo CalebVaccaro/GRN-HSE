@@ -3,24 +3,24 @@ import time
 import sys
 import json
 
-class BME_280(object):
-    bme = None
+class BME_280:
+
+    def __init__(self):
+        self.bme = QwiicBme280()
 
     def getSensor(self):
-        sensor = QwiicBme280()
 
-        if not sensor.connected:
+        if not self.bme.connected:
             print("BME280 device NOT Connected")
             sys.exit(0)
             return
 
-        sensor.begin()
-        BME_280.bme = sensor
+        self.bme.begin()
         print("BME-280 Is Communicating")
-        return sensor
+        return self.bme
 
     def getRawData(self):
-        bme = BME_280.bme
+        bme = self.bme
         # Return Better Data (JSON)
         bmeData = {'humidity': bme.humidity, 'pressure': bme.pressure, 'altitude': bme.altitude_meters, 'temperature': bme.temperature_fahrenheit}
         return json.dumps(bmeData)

@@ -3,22 +3,23 @@ import SensorLib
 from time import sleep
 from datetime import datetime
 
-class Log(object):
+class Log:
 
-    file = None
+    def __init__(self):
+        self.file = None
 
     def LogLurk(self):
-        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "w")
-        Log.file.write("\n\n")
-        Log.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
-        Log.file.write("\n")
-        SensorLib.LCD().printData("Log","Open Log File")
+        self.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "w")
+        self.file.write("\n\n")
+        self.file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
+        self.file.write("\n")
+        SensorLib.LCD.printData("Log","Open Log File")
         sleep(.5)
 
     def StopLog(self):
-        SensorLib.LCD().printData("Log","Stop Logging")
-        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
-        Log.file.close()
+        SensorLib.LCD.printData("Log","Stop Logging")
+        self.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        self.file.close()
         
     def LogInfo(self,data):
 
@@ -26,5 +27,5 @@ class Log(object):
         jsonData = json.dumps(str(data))
 
         # write to file
-        Log.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
-        Log.file.write(jsonData)
+        self.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        self.file.write(jsonData)

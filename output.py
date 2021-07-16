@@ -13,78 +13,74 @@ from datetime import datetime
 #led.off()
 #sleep(1)
 
-class Output(object):
+class Output:
 
-    # Last Median Values
-    # lastPressure = 0
-    lastHumidity = 0
-    lastTemperature = 0
+    def __init__(self):
+        # Last Median Values
+        self.lastHumidity = 0
+        self.lastTemperature = 0
 
-    # Current Median Values
-    # currentPressure = 0
-    currentHumidity = 0
-    currentTemperature = 0
+        # Current Median Values
+        self.currentHumidity = 0
+        self.currentTemperature = 0
 
-    # High Values
-    # highPressure = 0
-    highHumidity = 0
-    highTemperature = 0
+        # High Values
+        self.highHumidity = 0
+        self.highTemperature = 0
 
-    # Low Values
-    # lowPressure = 0
-    lowHumidity = 0
-    lowTemperature = 0
+        # Low Values
+        self.lowHumidity = 0
+        self.lowTemperature = 0
 
-    # Array Indices for Median Calculation
-    # pressureIndex = [0] * 10 
-    humidityIndex = []
-    tempIndex = []
+        # Array Indices for Median Calculation
+        self.humidityIndex = []
+        self.tempIndex = []
 
-    counter = 0
-    calibration = False
+        self.counter = 0
+        self.calibration = False
 
     def clearDataLists(self):
-        del Output.humidityIndex [:]
-        del Output.tempIndex [:]
+        del self.humidityIndex [:]
+        del self.tempIndex [:]
 
     def parseQuickPacket(self, newInput, count):
-        Output().counter = count
-        Output().calibration = True
+        self.counter = count
+        self.calibration = True
 
         bme = json.loads(newInput)["bme"]
         temp = json.loads(bme)["temperature"]
         humid = json.loads(bme)["humidity"]
 
-        Output().addValueToMedian(Output.humidityIndex, humid)
-        Output().addValueToMedian(Output.tempIndex, temp)
+        self.addValueToMedian(self.humidityIndex, humid)
+        self.addValueToMedian(self.tempIndex, temp)
 
-        Output().setOutputStatus(str("%.2f" % temp) + " " + str("%.3f" % humid))
+        self.setselfStatus(str("%.2f" % temp) + " " + str("%.3f" % humid))
 
     # get data from sensors
     # parse input data
-    # input into output data
+    # input into self data
     def parseInput(self,newInput):
         
-        Output().calibration = False
+        self.calibration = False
 
         bme = json.loads(newInput)["bme"]
         temp = json.loads(bme)["temperature"]
         humid = json.loads(bme)["humidity"]
 
-        humidChange = Output().CalculateIndex(Output.humidityIndex, humid, Output.currentHumidity, Output.highHumidity, Output.lowHumidity, Output.lastHumidity)
-        tempChange = Output().CalculateIndex(Output.tempIndex, temp, Output.currentTemperature, Output.highTemperature, Output.lowTemperature, Output.lastTemperature)
+        humidChange = self.CalculateIndex(self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
+        tempChange = self.CalculateIndex(self.tempIndex, temp, self.currentTemperature, self.highTemperature, self.lowTemperature, self.lastTemperature)
 
         rawPacket = {
             "type" : "RawPacket",
             "humidStatus" : humidChange,
             "tempStatus" : tempChange,
-            "humidMean" : Output.currentHumidity,
-            "tempMean" : Output.currentTemperature,
+            "humidMean" : self.currentHumidity,
+            "tempMean" : self.currentTemperature,
         }
 
         packet = json.dumps(rawPacket)
-        #print(Output.currentHumidity)
-        Output().getNewENV(packet)
+        #print(self.currentHumidity)
+        self.getNewENV(packet)
 
 
     def addValueToMedian(self, list, incomingValue):
@@ -95,15 +91,15 @@ class Output(object):
     # takes 10 entries
     def CalculateIndex(self, list, incomingValue, current, high, low, last):
         list.append(incomingValue)
-        Output().getNewMedian(list, current, high, low, last)
+        self.getNewMedian(list, current, high, low, last)
 
     # add values in array and divide by array size
     # get high and low values
     def getNewMedian(self, list, current, high, low, last):
         # calculate new median
-        Output.currentHumidity = sum(list) / len(list)
-        Output.highHumidity = max(list)
-        Output.lowHumidity = min(list)
+        current = sum(list) / len(list)
+        high = max(list)
+        low = min(list)
         #Export Package
         # Time
         # BME:
@@ -112,7 +108,7 @@ class Output(object):
         # Temp
         # Temp Change
         # New Status
-        Output().getChangeInMedians(current, last)
+        self.getChangeInMedians(current, last)
 
     # check the change in medians
     def getChangeInMedians(self,current, last):
@@ -126,35 +122,35 @@ class Output(object):
     # see which variable has drastic change
     # if drastic change
     # physics
-    def getNewENV(self,newOutputData):
-        changedENV = json.loads(newOutputData)["tempStatus"]
-        Output().getNewSituation(changedENV)
+    def getNewENV(self,newselfData):
+        changedENV = json.loads(newselfData)["tempStatus"]
+        self.getNewSituation(changedENV)
 
     # conditionalExpressions
     def getNewSituation(self,newENV):
         changedSituation = newENV
-        Output().setPhysicalActions(changedSituation)
+        self.setPhysicalActions(changedSituation)
 
-    # GPIO Output
+    # GPIO self
     def setPhysicalActions(self,newTasks):
         changedStatus = newTasks
-        Output().setOutputStatus(changedStatus)
+        self.setselfStatus(changedStatus)
 
-    # Static Output
-    def setOutputStatus(self,data):
+    # Static self
+    def setselfStatus(self,data):
 
         print("Data")
         print(data)
-        #print("End Output")
+        #print("End self")
 
-        if Output.calibration is True:
-            calData = "\nCalibration " + str(Output.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
-            Log().LogInfo(calData)
-            SensorLib.LCD().printData("Cal Temp", data)
+        if self.calibration is True:
+            calData = "\nCalibration " + str(self.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
+            Log.LogInfo(calData)
+            SensorLib.LCD.printData("Cal Temp", data)
         else:
-            runData = "\nRuntime " + str(Output.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
+            runData = "\nRuntime " + str(self.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
             Log().LogInfo(runData)
-            SensorLib.LCD().printData("Temp", data)
+            SensorLib.LCD.printData("Temp", data)
 
-        # Return JSON of OutputStatus and High/Low/Median Values
-        #return finalOutput
+        # Return JSON of selfStatus and High/Low/Median Values
+        #return finalself

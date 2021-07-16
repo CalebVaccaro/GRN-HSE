@@ -4,15 +4,15 @@ from output import Output
 from input import Input
 from log import Log
 
-# class easy refs
-i = Input()
-o = Output()
-l = Log()
-
 # counters
 calibrationCounter = 0
 runtimeCounter = 0
 dataCounter = 0
+
+# class easy refs
+i = Input()
+o = Output()
+l = Log()
 
 def calCounter():
     techCounter = 0
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
             o.parseInput(i.getInput())
 
-            sleep(20)
+            sleep(10)
             o.clearDataLists()
             # --- End of Loop --- #
 

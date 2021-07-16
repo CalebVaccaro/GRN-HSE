@@ -4,26 +4,25 @@ import time
 import sys
 import json
 
-class CCS_811(object):
+class CCS_811:
 
-    ccs = None
+    def __init__(self):
+        self.ccs = QwiicCcs811()
 
     def getSensor(self):
-        mySensor = QwiicCcs811()
-
-        if not mySensor.connected:
+        if not self.ccs.connected:
             print("CCS811 device NOT Connected")
             return
 
-        mySensor.begin()
-        CCS_811.ccs = mySensor
+        self.ccs.begin()
 
     def getRawData(self):
         # Return Better Data (JSON)
         #time.sleep(2)
-        CCS_811.ccs.read_algorithm_results()
-        CCS_811.ccs.read_ntc()
-        ccsData = {'co2': CCS_811.ccs.CO2 ,'tvoc': CCS_811.ccs.TVOC, 'temp': CCS_811.ccs.temperature, 'resistance': CCS_811.ccs.resistance }
+        ccs = self.ccs
+        ccs.read_algorithm_results()
+        ccs.read_ntc()
+        ccsData = {'co2': ccs.CO2 ,'tvoc': ccs.TVOC, 'temp': ccs.temperature, 'resistance': ccs.resistance }
         return json.dumps(ccsData)
 
 #if __name__ == '__main__':
