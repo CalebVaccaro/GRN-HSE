@@ -52,7 +52,7 @@ class Output:
         bme = json.loads(newInput)["bme"]
         temp = json.loads(bme)["temperature"]
         humid = json.loads(bme)["humidity"]
-        rpi = json.loads(newInput)["rpiTemp"]
+        rpi = json.loads(newInput)["rPi"]
 
         self.addValueToMedian(self.humidityIndex, humid)
         self.addValueToMedian(self.tempIndex, temp)
@@ -87,7 +87,7 @@ class Output:
         bme = json.loads(newInput)["bme"]
         temp = json.loads(bme)["temperature"]
         humid = json.loads(bme)["humidity"]
-        rpi = json.loads(newInput)["rpiTemp"]
+        rpi = json.loads(newInput)["rPi"]
 
         # Save Last Values
         self.lastHumidity = self.currentHumidity
