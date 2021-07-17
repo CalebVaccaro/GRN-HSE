@@ -1,4 +1,626 @@
 
 
-2021-07-16 15:59:47
-"\nRuntime 0 :77.00 56.469\ndt: 15:59:49\n""\nRuntime 0 :77.00 57.395\ndt: 15:59:50\n""\nRuntime 0 :77.00 57.432\ndt: 15:59:52\n""\nRuntime 0 :77.00 57.406\ndt: 15:59:53\n""\nRuntime 0 :77.00 57.421\ndt: 15:59:55\n""\nRuntime 0 :77.00 57.421\ndt: 15:59:56\n""\nRuntime 0 :77.00 57.395\ndt: 15:59:58\n""\nRuntime 0 :77.00 57.407\ndt: 15:59:59\n""\nRuntime 0 :77.00 57.419\ndt: 16:00:01\n""\nRuntime 0 :77.00 57.407\ndt: 16:00:02\n""\nRuntime 0 :77.00 57.421\ndt: 16:00:04\n""\nRuntime 0 :None\ndt: 16:00:05\n""\nRuntime 0 :77.00 57.382\ndt: 16:00:25\n""\nRuntime 0 :77.00 57.370\ndt: 16:00:27\n""\nRuntime 0 :77.00 57.370\ndt: 16:00:29\n""\nRuntime 0 :77.00 57.384\ndt: 16:00:30\n""\nRuntime 0 :77.00 57.361\ndt: 16:00:32\n""\nRuntime 0 :77.00 57.373\ndt: 16:00:34\n""\nRuntime 0 :77.00 57.384\ndt: 16:00:35\n""\nRuntime 0 :77.00 57.359\ndt: 16:00:37\n""\nRuntime 0 :77.00 57.373\ndt: 16:00:38\n""\nRuntime 0 :77.00 57.347\ndt: 16:00:40\n""\nRuntime 0 :77.00 57.360\ndt: 16:00:41\n""\nRuntime 0 :None\ndt: 16:00:43\n""\nRuntime 0 :77.00 57.349\ndt: 16:01:04\n""\nRuntime 0 :77.00 57.349\ndt: 16:01:06\n""\nRuntime 0 :77.00 57.347\ndt: 16:01:07\n""\nRuntime 0 :77.00 57.336\ndt: 16:01:09\n""\nRuntime 0 :77.00 57.336\ndt: 16:01:10\n""\nRuntime 0 :77.00 57.336\ndt: 16:01:12\n""\nRuntime 0 :77.00 57.335\ndt: 16:01:14\n""\nRuntime 0 :77.00 57.336\ndt: 16:01:15\n""\nRuntime 0 :77.00 57.349\ndt: 16:01:17\n""\nRuntime 0 :77.00 57.350\ndt: 16:01:19\n""\nRuntime 0 :77.00 57.349\ndt: 16:01:20\n""\nRuntime 0 :None\ndt: 16:01:22\n"
+2021-07-16 20:29:25
+ 57.610"
+
+"dt: 20:29:26"
+
+"Calibration 1 :80.60 58.705"
+
+"dt: 20:29:28"
+
+"Calibration 2 :80.60 58.680"
+
+"dt: 20:29:29"
+
+"Calibration 3 :80.60 58.754"
+
+"dt: 20:29:31"
+
+"Calibration 4 :80.60 58.730"
+
+"dt: 20:29:31"
+
+"Calibration 5 :80.60 58.755"
+
+"dt: 20:29:33"
+
+"Calibration 6 :80.60 58.766"
+
+"dt: 20:29:34"
+
+"Calibration 7 :80.60 58.766"
+
+"dt: 20:29:36"
+
+"Calibration 8 :80.60 58.754"
+
+"dt: 20:29:37"
+
+"Calibration 9 :80.60 58.742"
+
+"dt: 20:29:39"
+
+"Calibration 10 :80.60 58.767"
+
+"dt: 20:29:41"
+
+"Runtime 10 :{\"tempChange\": true, \"humidMean\": 58.63893821022727, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:29:42"
+
+"Calibration 0 :80.60 58.705"
+
+"dt: 20:29:55"
+
+"Calibration 1 :80.60 58.717"
+
+"dt: 20:29:56"
+
+"Calibration 2 :80.60 58.717"
+
+"dt: 20:29:58"
+
+"Calibration 3 :80.60 58.767"
+
+"dt: 20:29:59"
+
+"Calibration 4 :80.60 58.767"
+
+"dt: 20:30:01"
+
+"Calibration 5 :80.60 58.767"
+
+"dt: 20:30:02"
+
+"Calibration 6 :80.60 58.740"
+
+"dt: 20:30:04"
+
+"Calibration 7 :80.60 58.779"
+
+"dt: 20:30:05"
+
+"Calibration 8 :80.60 58.766"
+
+"dt: 20:30:07"
+
+"Calibration 9 :80.60 58.802"
+
+"dt: 20:30:09"
+
+"Calibration 10 :80.60 58.803"
+
+"dt: 20:30:10"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 58.75710227272727, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:30:12"
+
+"Calibration 0 :80.60 58.741"
+
+"dt: 20:30:24"
+
+"Calibration 1 :80.60 58.704"
+
+"dt: 20:30:26"
+
+"Calibration 2 :80.60 58.703"
+
+"dt: 20:30:27"
+
+"Calibration 3 :80.60 58.704"
+
+"dt: 20:30:29"
+
+"Calibration 4 :80.60 58.704"
+
+"dt: 20:30:30"
+
+"Calibration 5 :80.60 58.692"
+
+"dt: 20:30:32"
+
+"Calibration 6 :80.60 58.667"
+
+"dt: 20:30:33"
+
+"Calibration 7 :80.60 58.653"
+
+"dt: 20:30:35"
+
+"Calibration 8 :80.60 58.667"
+
+"dt: 20:30:37"
+
+"Calibration 9 :80.60 58.692"
+
+"dt: 20:30:38"
+
+"Calibration 10 :80.60 58.728"
+
+"dt: 20:30:40"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 58.69602272727273, \"type\": \"RawPacket\", \"humidChange\": false, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:30:41"
+
+"Calibration 0 :80.60 58.716"
+
+"dt: 20:30:54"
+
+"Calibration 1 :80.60 58.774"
+
+"dt: 20:30:55"
+
+"Calibration 2 :80.60 58.798"
+
+"dt: 20:30:57"
+
+"Calibration 3 :80.60 58.811"
+
+"dt: 20:30:58"
+
+"Calibration 4 :80.60 58.834"
+
+"dt: 20:31:00"
+
+"Calibration 5 :80.60 58.881"
+
+"dt: 20:31:01"
+
+"Calibration 6 :80.60 58.896"
+
+"dt: 20:31:03"
+
+"Calibration 7 :80.60 58.884"
+
+"dt: 20:31:05"
+
+"Calibration 8 :80.60 58.872"
+
+"dt: 20:31:06"
+
+"Calibration 9 :80.60 58.896"
+
+"dt: 20:31:08"
+
+"Calibration 10 :80.60 58.893"
+
+"dt: 20:31:09"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 58.84126420454545, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:31:11"
+
+"Calibration 0 :80.60 58.833"
+
+"dt: 20:31:23"
+
+"Calibration 1 :80.60 58.830"
+
+"dt: 20:31:25"
+
+"Calibration 2 :80.60 58.830"
+
+"dt: 20:31:26"
+
+"Calibration 3 :80.60 58.843"
+
+"dt: 20:31:28"
+
+"Calibration 4 :80.60 58.844"
+
+"dt: 20:31:30"
+
+"Calibration 5 :80.60 58.856"
+
+"dt: 20:31:31"
+
+"Calibration 6 :80.60 58.817"
+
+"dt: 20:31:33"
+
+"Calibration 7 :80.60 58.841"
+
+"dt: 20:31:34"
+
+"Calibration 8 :80.60 58.853"
+
+"dt: 20:31:36"
+
+"Calibration 9 :80.60 58.841"
+
+"dt: 20:31:37"
+
+"Calibration 10 :80.60 58.853"
+
+"dt: 20:31:39"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 58.84002130681818, \"type\": \"RawPacket\", \"humidChange\": false, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:31:40"
+
+"Calibration 0 :80.60 58.892"
+
+"dt: 20:31:53"
+
+"Calibration 1 :80.60 58.877"
+
+"dt: 20:31:54"
+
+"Calibration 2 :80.60 58.939"
+
+"dt: 20:31:56"
+
+"Calibration 3 :80.60 58.963"
+
+"dt: 20:31:58"
+
+"Calibration 4 :80.60 58.978"
+
+"dt: 20:31:59"
+
+"Calibration 5 :80.60 58.975"
+
+"dt: 20:32:00"
+
+"Calibration 6 :80.60 58.961"
+
+"dt: 20:32:01"
+
+"Calibration 7 :80.60 58.975"
+
+"dt: 20:32:03"
+
+"Calibration 8 :80.60 58.901"
+
+"dt: 20:32:04"
+
+"Calibration 9 :80.60 58.865"
+
+"dt: 20:32:06"
+
+"Calibration 10 :80.60 58.875"
+
+"dt: 20:32:07"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 58.92729048295455, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:32:09"
+
+"Calibration 0 :80.60 100.000"
+
+"dt: 20:32:19"
+
+"Calibration 1 :80.60 58.974"
+
+"dt: 20:32:21"
+
+"Calibration 2 :80.60 59.010"
+
+"dt: 20:32:23"
+
+"Calibration 3 :80.60 59.033"
+
+"dt: 20:32:24"
+
+"Calibration 4 :80.60 59.033"
+
+"dt: 20:32:26"
+
+"Calibration 5 :80.60 59.009"
+
+"dt: 20:32:27"
+
+"Calibration 6 :80.60 59.022"
+
+"dt: 20:32:29"
+
+"Calibration 7 :80.60 59.034"
+
+"dt: 20:32:30"
+
+"Calibration 8 :80.60 59.034"
+
+"dt: 20:32:32"
+
+"Calibration 9 :80.60 59.047"
+
+"dt: 20:32:33"
+
+"Calibration 10 :80.60 59.034"
+
+"dt: 20:32:35"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 62.74822443181818, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:32:37"
+
+"Calibration 0 :80.60 59.047"
+
+"dt: 20:32:49"
+
+"Calibration 1 :80.60 59.034"
+
+"dt: 20:32:51"
+
+"Calibration 2 :80.60 59.060"
+
+"dt: 20:32:52"
+
+"Calibration 3 :80.60 59.060"
+
+"dt: 20:32:54"
+
+"Calibration 4 :80.60 59.070"
+
+"dt: 20:32:55"
+
+"Calibration 5 :80.60 59.060"
+
+"dt: 20:32:57"
+
+"Calibration 6 :80.60 59.061"
+
+"dt: 20:32:58"
+
+"Calibration 7 :80.60 59.061"
+
+"dt: 20:33:00"
+
+"Calibration 8 :80.60 58.986"
+
+"dt: 20:33:01"
+
+"Calibration 9 :80.60 58.986"
+
+"dt: 20:33:03"
+
+"Calibration 10 :80.60 58.974"
+
+"dt: 20:33:05"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 59.0361328125, \"type\": \"RawPacket\", \"humidChange\": false, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:33:06"
+
+"Calibration 0 :80.60 59.010"
+
+"dt: 20:33:19"
+
+"Calibration 1 :80.60 59.009"
+
+"dt: 20:33:20"
+
+"Calibration 2 :80.60 58.984"
+
+"dt: 20:33:22"
+
+"Calibration 3 :80.60 58.997"
+
+"dt: 20:33:23"
+
+"Calibration 4 :80.60 58.985"
+
+"dt: 20:33:25"
+
+"Calibration 5 :80.60 58.974"
+
+"dt: 20:33:26"
+
+"Calibration 6 :80.60 58.984"
+
+"dt: 20:33:28"
+
+"Calibration 7 :80.60 58.985"
+
+"dt: 20:33:29"
+
+"Calibration 8 :80.60 100.000"
+
+"dt: 20:33:30"
+
+"Calibration 9 :80.60 58.974"
+
+"dt: 20:33:31"
+
+"Calibration 10 :80.60 58.948"
+
+"dt: 20:33:33"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 62.71368963068182, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 80.60000000000001}"
+
+"dt: 20:33:34"
+
+"Calibration 0 :80.60 59.056"
+
+"dt: 20:33:47"
+
+"Calibration 1 :80.60 59.044"
+
+"dt: 20:33:48"
+
+"Calibration 2 :80.60 59.032"
+
+"dt: 20:33:50"
+
+"Calibration 3 :80.60 59.009"
+
+"dt: 20:33:52"
+
+"Calibration 4 :78.80 59.008"
+
+"dt: 20:33:53"
+
+"Calibration 5 :78.80 59.007"
+
+"dt: 20:33:55"
+
+"Calibration 6 :80.60 59.044"
+
+"dt: 20:33:56"
+
+"Calibration 7 :80.60 59.068"
+
+"dt: 20:33:58"
+
+"Calibration 8 :80.60 59.056"
+
+"dt: 20:33:59"
+
+"Calibration 9 :80.60 59.080"
+
+"dt: 20:34:01"
+
+"Calibration 10 :78.80 59.117"
+
+"dt: 20:34:02"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 59.04731889204545, \"type\": \"RawPacket\", \"humidChange\": false, \"tempMean\": 80.10909090909091}"
+
+"dt: 20:34:04"
+
+"Calibration 0 :78.80 59.018"
+
+"dt: 20:34:16"
+
+"Calibration 1 :78.80 59.056"
+
+"dt: 20:34:18"
+
+"Calibration 2 :78.80 59.078"
+
+"dt: 20:34:20"
+
+"Calibration 3 :78.80 59.093"
+
+"dt: 20:34:21"
+
+"Calibration 4 :78.80 59.103"
+
+"dt: 20:34:23"
+
+"Calibration 5 :78.80 59.127"
+
+"dt: 20:34:24"
+
+"Calibration 6 :78.80 59.103"
+
+"dt: 20:34:26"
+
+"Calibration 7 :78.80 59.091"
+
+"dt: 20:34:27"
+
+"Calibration 8 :78.80 59.078"
+
+"dt: 20:34:28"
+
+"Calibration 9 :78.80 59.117"
+
+"dt: 20:34:29"
+
+"Calibration 10 :78.80 59.127"
+
+"dt: 20:34:31"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 59.08993252840909, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 78.79999999999998}"
+
+"dt: 20:34:32"
+
+"Calibration 0 :78.80 59.151"
+
+"dt: 20:34:45"
+
+"Calibration 1 :78.80 59.174"
+
+"dt: 20:34:46"
+
+"Calibration 2 :78.80 59.162"
+
+"dt: 20:34:48"
+
+"Calibration 3 :78.80 59.173"
+
+"dt: 20:34:49"
+
+"Calibration 4 :78.80 59.187"
+
+"dt: 20:34:51"
+
+"Calibration 5 :78.80 59.198"
+
+"dt: 20:34:53"
+
+"Calibration 6 :78.80 59.198"
+
+"dt: 20:34:54"
+
+"Calibration 7 :78.80 59.210"
+
+"dt: 20:34:56"
+
+"Calibration 8 :78.80 59.195"
+
+"dt: 20:34:57"
+
+"Calibration 9 :78.80 59.174"
+
+"dt: 20:34:59"
+
+"Calibration 10 :78.80 59.162"
+
+"dt: 20:35:00"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 59.18039772727273, \"type\": \"RawPacket\", \"humidChange\": true, \"tempMean\": 78.79999999999998}"
+
+"dt: 20:35:02"
+
+"Calibration 0 :78.80 59.173"
+
+"dt: 20:35:14"
+
+"Calibration 1 :78.80 59.164"
+
+"dt: 20:35:16"
+
+"Calibration 2 :78.80 59.176"
+
+"dt: 20:35:17"
+
+"Calibration 3 :78.80 59.126"
+
+"dt: 20:35:19"
+
+"Calibration 4 :78.80 59.114"
+
+"dt: 20:35:21"
+
+"Calibration 5 :78.80 59.102"
+
+"dt: 20:35:22"
+
+"Calibration 6 :78.80 59.101"
+
+"dt: 20:35:24"
+
+"Calibration 7 :78.80 59.076"
+
+"dt: 20:35:25"
+
+"Calibration 8 :78.80 59.089"
+
+"dt: 20:35:27"
+
+"Calibration 9 :78.80 59.091"
+
+"dt: 20:35:28"
+
+"Calibration 10 :78.80 59.102"
+
+"dt: 20:35:30"
+
+"Runtime 10 :{\"tempChange\": false, \"humidMean\": 59.11931818181818, \"type\": \"RawPacket\", \"humidChange\": false, \"tempMean\": 78.79999999999998}"
+
+"dt: 20:35:31"

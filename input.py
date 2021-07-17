@@ -6,7 +6,7 @@ class Input:
 
     def __init__(self):
         self.b = SensorLib.BME_280()
-        self.c = SensorLib.CCS811()
+        #self.c = SensorLib.CCS811()
         self.l = SensorLib.LCD()
 
     def ValidateSensors(self):

@@ -26,6 +26,7 @@ class Output:
         # Current Median Values
         self.currentHumidity = 0
         self.currentTemperature = 0
+        print("init")
 
         # High Values
         self.highHumidity = 0
@@ -70,13 +71,18 @@ class Output:
         temp = json.loads(bme)["temperature"]
         humid = json.loads(bme)["humidity"]
 
-        humidChange = self.CalculateIndex(self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
-        tempChange = self.CalculateIndex(self.tempIndex, temp, self.currentTemperature, self.highTemperature, self.lowTemperature, self.lastTemperature)
+        humidChange = False
+        tempChange = False
+        humidChange = self.CalculateIndex(0,self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
+        tempChange = self.CalculateIndex(1,self.tempIndex, temp, self.currentTemperature, self.highTemperature, self.lowTemperature, self.lastTemperature)
+
+        #rint("Change")
+        #print(humidChange)
 
         rawPacket = {
             "type" : "RawPacket",
-            "humidStatus" : humidChange,
-            "tempStatus" : tempChange,
+            "humidChange" : humidChange,
+            "tempChange" : tempChange,
             "humidMean" : self.currentHumidity,
             "tempMean" : self.currentTemperature,
         }
@@ -87,22 +93,29 @@ class Output:
 
 
     def addValueToMedian(self, list, incomingValue):
-        print(incomingValue)
+        #print(incomingValue)
         list.append(incomingValue)
 
     # add index to median list
     # takes 10 entries
-    def CalculateIndex(self, list, incomingValue, current, high, low, last):
-        list.append(incomingValue)
-        self.getNewMedian(list, current, high, low, last)
+    def CalculateIndex(self, type, list, incomingValue, current, high, low, last):
+        #list.append(incomingValue)
+        return self.getNewMedian(type, list, current, high, low, last)
 
     # add values in array and divide by array size
     # get high and low values
-    def getNewMedian(self, list, current, high, low, last):
+    def getNewMedian(self, type, list, current, high, low, last):
         # calculate new median
         current = sum(list) / len(list)
-        high = max(list)
-        low = min(list)
+        if type is 0:
+            self.highHumidity = max(list)
+            self.lowHumidity = min(list)
+            
+        else:
+            self.lowTemperature = max(list)
+            self.highTemperature = min(list)
+        #high = max(list)
+        #low = min(list)
         #Export Package
         # Time
         # BME:
@@ -111,22 +124,41 @@ class Output:
         # Temp
         # Temp Change
         # New Status
-        self.getChangeInMedians(current, last)
+        return self.getChangeInMedians(type, current, last)
 
     # check the change in medians
-    def getChangeInMedians(self,current, last):
+    def getChangeInMedians(self,type, current, last):
         # Last Median >= Current Median
+        print(str(last) + " : " + str(current))
         if current > last:
-            print("True")
+            last = current
+            #print("True")
+            if type is 0:
+                self.lastHumidity = last
+                self.currentHumidity = current
+                #print("humid")
+                #print(self.lastHumidity)
+                #print(self.currentHumidity)
+            if type is 1:
+                self.lastTemperature = last
+                self.currentTemperature = current
             return True
         else:
+            last = current
+            #print("False")
+            if type is 0:
+                self.lastHumidity = last
+                self.currentHumidity = current
+            if type is 1:
+                self.lastTemperature = last
+                self.currentTemperature = current
             return False
 
     # see which variable has drastic change
     # if drastic change
     # physics
     def getNewENV(self,newselfData):
-        changedENV = json.loads(newselfData)["tempStatus"]
+        changedENV = str(newselfData)
         self.getNewSituation(changedENV)
 
     # conditionalExpressions
@@ -142,17 +174,25 @@ class Output:
     # Static self
     def setselfStatus(self,data):
 
-        print("Data")
+        #print("Data")
         print(data)
         #print("End self")
 
         if self.calibration is True:
-            calData = "\nCalibration " + str(self.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
+            calData = "Calibration " + str(self.counter) + " :" + str(data)
+            #self.o.file.write("\n")
             self.o.LogInfo(calData)
+            self.o.LogInfo("dt: " + datetime.today().strftime('%H:%M:%S'))
+            #self.o.file.write("\n")
+            #self.o.file.write("dt: " + datetime.today().strftime('%H:%M:%S'))
             self.l.printData("Cal Temp", data)
         else:
-            runData = "\nRuntime " + str(self.counter) + " :" + str(data) + "\ndt: " + datetime.today().strftime('%H:%M:%S') +"\n"
+            runData = "Runtime " + str(self.counter) + " :" + str(data)
+            #self.o.file.write("\n\n")
             self.o.LogInfo(runData)
+            self.o.LogInfo("dt: " + datetime.today().strftime('%H:%M:%S'))
+            #self.o.file.write("\n")
+            #self.o.file.write("dt: " + datetime.today().strftime('%H:%M:%S'))
             self.l.printData("Temp", data)
 
         # Return JSON of selfStatus and High/Low/Median Values

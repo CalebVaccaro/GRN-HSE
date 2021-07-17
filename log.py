@@ -29,4 +29,6 @@ class Log:
 
         # write to file
         self.file = open("/home/pi/Documents/GRN-HSE/log/log.json", "a")
+        self.file.write("\n")
         self.file.write(jsonData)
+        self.file.write("\n")
