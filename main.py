@@ -34,6 +34,7 @@ if __name__ == '__main__':
         l.LogLurk()
 
         while True:
+            
             # --- Full Loop ---
             # First Time Run
             # run for a min
@@ -42,12 +43,10 @@ if __name__ == '__main__':
                 o.parseQuickPacket(i.getInput(), calibrationCounter)
                 calCounter()
                 calibrationCounter += 1
-
             # Reset Calibration Counter
             calibrationCounter = 0
 
             o.parseInput(i.getInput())
-
             sleep(10)
             o.clearDataLists()
             # --- End of Loop --- #

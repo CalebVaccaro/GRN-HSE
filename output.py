@@ -67,9 +67,8 @@ class Output:
             "temp" : trimTemp,
             "dateTime" : datetime.today().strftime('%H:%M:%S')
         }
-        packet = json.dumps(quickPacket)
 
-        # quick testing some variables
+        packet = json.dumps(quickPacket)
         self.setselfStatus(packet)
 
     # get data from sensors
@@ -119,18 +118,15 @@ class Output:
         }
 
         packet = json.dumps(rawPacket)
-        #print(self.currentHumidity)
         self.getNewENV(packet)
 
-
     def addValueToMedian(self, list, incomingValue):
-        #print(incomingValue)
         list.append(incomingValue)
 
     # add index to median list
     # takes 10 entries
     def CalculateIndex(self, type, list, incomingValue, current, high, low, last):
-        #list.append(incomingValue)
+        self.addValueToMedian(list,incomingValue)
         return self.getNewMedian(type, list, current, high, low, last)
 
     # add values in array and divide by array size

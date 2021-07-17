@@ -15,6 +15,7 @@ class Input:
 
         # RPI Temp Init
         self.r.temperature
+        sleep(.1)
 
         # LED INIT
         self.l.getSensor()
@@ -32,7 +33,7 @@ class Input:
 
     def getInput(self):
         # return RAW ENV-data to a Paired Object (CCS and BME data)
-        #ccsData =self.c.getRawData()
+        #ccsData = self.c.getRawData()
         bmeData = self.b.getRawData()
         rPiData = self.r.temperature + 32 # For Fahrenheit
         #allInput = {"ccs": ccsData, "bme": bmeData}
