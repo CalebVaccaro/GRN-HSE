@@ -73,6 +73,8 @@ class Output:
 
         humidChange = False
         tempChange = False
+        self.lastHumidity = self.currentHumidity
+        self.lastTemperature = self.currentTemperature
         humidChange = self.CalculateIndex(0,self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
         tempChange = self.CalculateIndex(1,self.tempIndex, temp, self.currentTemperature, self.highTemperature, self.lowTemperature, self.lastTemperature)
 
@@ -85,6 +87,8 @@ class Output:
             "tempChange" : tempChange,
             "humidMean" : self.currentHumidity,
             "tempMean" : self.currentTemperature,
+            "lastTempMean" : self.lastTemperature,
+            "lastHumidMean" : self.lastHumidity
         }
 
         packet = json.dumps(rawPacket)
@@ -131,26 +135,26 @@ class Output:
         # Last Median >= Current Median
         print(str(last) + " : " + str(current))
         if current > last:
-            last = current
+            #last = current
             #print("True")
             if type is 0:
-                self.lastHumidity = last
+                #self.lastHumidity = last
                 self.currentHumidity = current
                 #print("humid")
                 #print(self.lastHumidity)
                 #print(self.currentHumidity)
             if type is 1:
-                self.lastTemperature = last
+                #self.lastTemperature = last
                 self.currentTemperature = current
             return True
         else:
-            last = current
+            #last = current
             #print("False")
             if type is 0:
-                self.lastHumidity = last
+                #self.lastHumidity = last
                 self.currentHumidity = current
             if type is 1:
-                self.lastTemperature = last
+                #self.lastTemperature = last
                 self.currentTemperature = current
             return False
 
