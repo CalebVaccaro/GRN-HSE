@@ -173,19 +173,21 @@ class Output:
     # if drastic change
     # physics
     def getNewENV(self,newselfData):
+
+        # create new enviroment tuple
         hChange = json.loads(newselfData)["humidChange"]
         tChange = json.loads(newselfData)["tempChange"]
         rChange = json.loads(newselfData)["rpiChange"]
-
         changedENV = (hChange,tChange,rChange)
-        self.setPhysicalActions(changedENV)
 
         # Export Better Packet
         self.setselfStatus(str(newselfData))
+        self.setPhysicalActions(changedENV)
 
     # GPIO self
     def setPhysicalActions(self,newTasks):
 
+        # get each action needed
         humidAction = newTasks[0]
         tempAction = newTasks[1]
         rpiAction = newTasks[2]
@@ -195,23 +197,23 @@ class Output:
         self.g.tempFanAction(tempAction)
         self.g.rPiFanAction(rpiAction)
         
-    # Static self
+    # Print and Log Incoming Data
     def setselfStatus(self,data):
+
+        self.o.LogInfo(data)
+        d = json.loads(data)
+
         if self.calibration is True:
-
-            h = json.loads(data)["humidity"]
-            t = json.loads(data)["temp"]
+            h = d["humidity"]
+            t = d["temp"]
             display = "Temp: " + str(t) + " Humid: " + str(h)
-
-            self.o.LogInfo(data)
+            
             self.l.printData("RT", display)
         else:
+            h = d["humidChange"]
+            t = d["tempChange"]
+            display = "TChange: " + str(t) + " HChange: " + str(h)
 
-            h = json.loads(data)["humidChange"]
-            t = json.loads(data)["tempChange"]
-            display = "TempC: " + str(t) + " HumidC: " + str(h)
-
-            self.o.LogInfo(data)
             self.l.printData("CX", display)
 
    
