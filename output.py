@@ -188,7 +188,7 @@ class Output:
         humidAction = newTasks[0]
         tempAction = newTasks[1]
 
-        self.g.rPiFanAction(tempAction)
+        #self.g.rPiFanAction(tempAction)
         self.g.humidityFanAction(humidAction)
         
     # Static self
