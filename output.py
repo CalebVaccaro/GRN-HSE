@@ -63,15 +63,14 @@ class Output:
 
         quickPacket = {
             "type" : "QuickPacket",
-            "humidChange" : trimHumid,
-            "tempChange" : trimTemp,
+            "humidity" : trimHumid,
+            "temp" : trimTemp,
             "dateTime" : datetime.today().strftime('%H:%M:%S')
         }
         packet = json.dumps(quickPacket)
 
         # quick testing some variables
-        displayQuickPacket = "Temp: " + trimTemp + " Humidity: " + trimHumid + " DT: " + datetime.today().strftime('%H:%M:%S')
-        self.setselfStatus(displayQuickPacket)
+        self.setselfStatus(packet)
 
     # get data from sensors
     # parse input data
@@ -96,7 +95,7 @@ class Output:
         # Calculate Variable Mean Changes
         humidChange = self.CalculateIndex(0,self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
         tempChange = self.CalculateIndex(1,self.tempIndex, temp, self.currentTemperature, self.highTemperature, self.lowTemperature, self.lastTemperature)
-        self.CalculateIndex(2,self.RPiTempIndex, rpi, self.currentRPiTemp, self.highRPiTemp, self.lastRPiTemp, self.lastRPiTemp)
+        rpiChange = self.CalculateIndex(2,self.RPiTempIndex, rpi, self.currentRPiTemp, self.highRPiTemp, self.lastRPiTemp, self.lastRPiTemp)
 
         #Export Package
         # Time
@@ -110,6 +109,7 @@ class Output:
             "type" : "RawPacket",
             "humidChange" : humidChange,
             "tempChange" : tempChange,
+            "rpiChange" : rpiChange,
             "humidMean" : str("%.5f" % self.currentHumidity),
             "tempMean" : str("%.2f" % self.currentTemperature),
             "lastTempMean" : str("%.2f" % self.lastTemperature),
@@ -175,8 +175,9 @@ class Output:
     def getNewENV(self,newselfData):
         hChange = json.loads(newselfData)["humidChange"]
         tChange = json.loads(newselfData)["tempChange"]
+        rChange = json.loads(newselfData)["rpiChange"]
 
-        changedENV = (hChange,tChange)
+        changedENV = (hChange,tChange,rChange)
         self.setPhysicalActions(changedENV)
 
         # Export Better Packet
@@ -187,17 +188,30 @@ class Output:
 
         humidAction = newTasks[0]
         tempAction = newTasks[1]
+        rpiAction = newTasks[2]
 
         #self.g.rPiFanAction(tempAction)
         self.g.humidityFanAction(humidAction)
+        self.g.tempFanAction(tempAction)
+        self.g.rPiFanAction(rpiAction)
         
     # Static self
     def setselfStatus(self,data):
         if self.calibration is True:
+
+            h = json.loads(data)["humidity"]
+            t = json.loads(data)["temp"]
+            display = "Temp: " + str(t) + " Humid: " + str(h)
+
             self.o.LogInfo(data)
-            self.l.printData("Cal Temp", data)
+            self.l.printData("RT", display)
         else:
+
+            h = json.loads(data)["humidChange"]
+            t = json.loads(data)["tempChange"]
+            display = "TempC: " + str(t) + " HumidC: " + str(h)
+
             self.o.LogInfo(data)
-            self.l.printData("Temp", data)
+            self.l.printData("CX", display)
 
    
