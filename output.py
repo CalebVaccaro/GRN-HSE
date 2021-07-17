@@ -94,7 +94,7 @@ class Output:
         # Calculate Variable Mean Changes
         humidChange = self.CalculateIndex(0,self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
         tempChange = self.CalculateIndex(1,self.tempIndex, temp, self.currentTemperature, self.highTemperature, self.lowTemperature, self.lastTemperature)
-        rpiChange = self.CalculateIndex(2,self.RPiTempIndex, rpi, self.currentRPiTemp, self.highRPiTemp, self.lastRPiTemp, self.lastRPiTemp)
+        rpiChange = self.CalculateIndex(2,self.RPiTempIndex, rpi, self.currentRPiTemp, self.highRPiTemp, self.lowTempRPiTemp, self.lastRPiTemp)
 
         #Export Package
         # Time
@@ -190,7 +190,7 @@ class Output:
 
         #self.g.rPiFanAction(tempAction)
         self.g.humidityFanAction(humidAction)
-        self.g.tempFanAction(tempAction)
+        #self.g.tempFanAction(tempAction)
         self.g.rPiFanAction(rpiAction)
         
     # Print and Log Incoming Data
