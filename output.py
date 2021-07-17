@@ -58,7 +58,7 @@ class Output:
         self.addValueToMedian(self.tempIndex, temp)
         self.addValueToMedian(self.RPiTempIndex, rpi)
 
-        trimHumid = str("%.5f °" % humid)
+        trimHumid = str("%.5f" % humid)
         trimTemp = str("%.2f" % temp)
 
         quickPacket = {
