@@ -32,12 +32,10 @@ class LCD:
                 self.monitor.setCursor(0, 0)
                 self.monitor.print(str(header) + ":  ")
                 self.monitor.print(str(data))
-            else:
-                # do something else (print on rpi)
-                print(header + ":\n" + data)
-            time.sleep(1)
+                time.sleep(1)
         except:
-            #print("error on LCD")
+            # do something else (print on rpi)
+            print(header + ":\n" + data)
 
     def printMultipleData(self, data):
         for x in data:
