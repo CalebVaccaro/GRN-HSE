@@ -16,7 +16,7 @@ l = Log()
 
 def calCounter():
     techCounter = 0
-    while techCounter < 50000:
+    while techCounter < 5000000:
         techCounter += .1
 
 def runtimeCounter():

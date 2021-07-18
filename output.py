@@ -209,7 +209,8 @@ class Output:
         else:
             h = d["humidChange"]
             t = d["tempChange"]
-            display = "TChange: " + str(t) + " HChange: " + str(h)
+            r = d["rpiTemp"]
+            display = "TChange: " + str(t) + " HChange: " + str(h) + " RChange: " + str(r)
 
             self.l.printData("CX", display)
 
