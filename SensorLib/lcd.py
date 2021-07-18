@@ -1,5 +1,5 @@
 from __future__ import print_function
-import qwiic_serlcd
+from SensorLib.qwiic_serlcd import QwiicBme280
 import time
 import json
 
@@ -11,7 +11,7 @@ class LCD:
 
     def getSensor(self):
 
-        self.monitor = qwiic_serlcd.QwiicSerlcd()
+        self.monitor = QwiicSerlcd()
 
         if not self.monitor.connected:
             self.ifLCD = False
