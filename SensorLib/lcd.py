@@ -28,7 +28,7 @@ class LCD:
                 # do something (print on LCD)
                 self.monitor.clearScreen()
                 self.monitor.setCursor(0, 0)
-                self.monitor.print(header + ":  ")
+                self.monitor.print(str(header) + ":  ")
                 self.monitor.print(str(data))
             else:
                 # do something else (print on rpi)
