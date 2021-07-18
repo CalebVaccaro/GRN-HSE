@@ -90,6 +90,7 @@ class Output:
         # Save Last Values
         self.lastHumidity = self.currentHumidity
         self.lastTemperature = self.currentTemperature
+        self.lastRPiTemp = self.currentRPiTemp
 
         # Calculate Variable Mean Changes
         humidChange = self.CalculateIndex(0,self.humidityIndex, humid, self.currentHumidity, self.highHumidity, self.lowHumidity, self.lastHumidity)
@@ -187,6 +188,8 @@ class Output:
         humidAction = newTasks[0]
         tempAction = newTasks[1]
         rpiAction = newTasks[2]
+
+        # add values that auto toggle mechanical equipment
 
         #self.g.rPiFanAction(tempAction)
         self.g.humidityFanAction(humidAction)
