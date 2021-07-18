@@ -189,7 +189,13 @@ class Output:
         tempAction = newTasks[1]
         rpiAction = newTasks[2]
 
-        # add values that auto toggle mechanical equipment
+        # Overwrite Max Values to Auto Toggle Mechanical Equipment
+        if self.currentHumidity >= 90:
+            humidAction = True
+        if self.currentTemperature >= 85:
+            tempAction = True
+        if self.currentRPiTemp >= 85:
+            rpiAction = True
 
         #self.g.rPiFanAction(tempAction)
         self.g.humidityFanAction(humidAction)
