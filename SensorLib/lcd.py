@@ -28,7 +28,7 @@ class LCD:
         #try:
             if self.ifLCD is True:
                 # do something (print on LCD)
-                self.monitor.clearScreen()
+                # self.monitor.clearScreen()
                 self.monitor.setCursor(0, 0)
                 self.monitor.print(str(header) + ":  ")
                 self.monitor.print(str(data))
