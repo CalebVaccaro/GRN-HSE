@@ -1,5 +1,5 @@
 from __future__ import print_function
-from SensorLib.qwiic_serlcd import QwiicBme280
+from SensorLib.qwiic_serlcd import QwiicSerlcd
 import time
 import json
 
