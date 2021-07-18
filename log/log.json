@@ -1,0 +1,50 @@
+
+
+2021-07-17 20:46:27
+46:29\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"62.76270\"}"
+
+"{\"dateTime\": \"20:46:31\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"64.02832\"}"
+
+"{\"dateTime\": \"20:46:33\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"64.00391\"}"
+
+"{\"dateTime\": \"20:46:36\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"64.00391\"}"
+
+"{\"dateTime\": \"20:46:38\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.97949\"}"
+
+"{\"dateTime\": \"20:46:40\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.97949\"}"
+
+"{\"dateTime\": \"20:46:43\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.96875\"}"
+
+"{\"dateTime\": \"20:46:45\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.95508\"}"
+
+"{\"dateTime\": \"20:46:48\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.94434\"}"
+
+"{\"dateTime\": \"20:46:50\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.93066\"}"
+
+"{\"dateTime\": \"20:46:52\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.91895\"}"
+
+"{\"tempMean\": \"75.20\", \"rpiChange\": true, \"humidMean\": \"63.86336\", \"lastTempMean\": \"0.00\", \"humidChange\": true, \"lastHumidMean\": \"0.00000\", \"tempChange\": true, \"type\": \"RawPacket\", \"rpiTemp\": \"70.87\", \"dateTime\": \"20:46:55\"}"
+
+"{\"dateTime\": \"20:47:06\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.81152\"}"
+
+"{\"dateTime\": \"20:47:08\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.84570\"}"
+
+"{\"dateTime\": \"20:47:11\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.82422\"}"
+
+"{\"dateTime\": \"20:47:13\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.79883\"}"
+
+"{\"dateTime\": \"20:47:15\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.79688\"}"
+
+"{\"dateTime\": \"20:47:17\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.77441\"}"
+
+"{\"dateTime\": \"20:47:20\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.77344\"}"
+
+"{\"dateTime\": \"20:47:22\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.77246\"}"
+
+"{\"dateTime\": \"20:47:24\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.75000\"}"
+
+"{\"dateTime\": \"20:47:27\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.73828\"}"
+
+"{\"dateTime\": \"20:47:29\", \"type\": \"QuickPacket\", \"temp\": \"75.20\", \"humidity\": \"63.73535\"}"
+
+"{\"tempMean\": \"75.20\", \"rpiChange\": true, \"humidMean\": \"63.77873\", \"lastTempMean\": \"75.20\", \"humidChange\": false, \"lastHumidMean\": \"63.86336\", \"tempChange\": false, \"type\": \"RawPacket\", \"rpiTemp\": \"71.41\", \"dateTime\": \"20:47:31\"}"
