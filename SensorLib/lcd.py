@@ -6,10 +6,12 @@ import json
 class LCD:
 
     def __init__(self):
-        self.monitor = qwiic_serlcd.QwiicSerlcd()
+        self.monitor = None
         self.ifLCD = True
 
     def getSensor(self):
+
+        self.monitor = qwiic_serlcd.QwiicSerlcd()
 
         if not self.monitor.connected:
             self.ifLCD = False
