@@ -25,10 +25,10 @@ class LCD:
         self.printData("LCD","Display Activated")
 
     def printData(self,header, data):
-        #try:
+        try:
             if self.ifLCD is True:
                 # do something (print on LCD)
-                # self.monitor.clearScreen()
+                self.monitor.clearScreen()
                 self.monitor.setCursor(0, 0)
                 self.monitor.print(str(header) + ":  ")
                 self.monitor.print(str(data))
@@ -36,7 +36,7 @@ class LCD:
                 # do something else (print on rpi)
                 print(header + ":\n" + data)
             time.sleep(1)
-        #except:
+        except:
             #print("error on LCD")
 
     def printMultipleData(self, data):
